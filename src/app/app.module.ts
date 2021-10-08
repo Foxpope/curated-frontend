@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ReviewDetailComponent } from './components/review-detail/review-detail.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],
