@@ -6,17 +6,17 @@
                 <form role="form" class="text-light">
                     <div class="mb-3">
                         <label for="username-input" class="lead text-white-50">Username</label>
-                        <input type="text" class="bg-gradient bg-light form-control shadow-sm" id="username-input"
+                        <input [(ngModel)]="user.username" name="username" type="text" class="bg-gradient bg-light form-control shadow-sm" id="username-input"
                             required>
                     </div>
                     <div class="mb-3">
                         <label for="email-input" class="lead text-white-50">Email Address</label>
-                        <input type="email" class="bg-gradient bg-light form-control shadow-sm" id="email-input"
+                        <input [(ngModel)]="user.email" name="email" type="email" class="bg-gradient bg-light form-control shadow-sm" id="email-input"
                             required>
                     </div>
                     <div class="mb-3">
                         <label for="password-input" class="lead text-white-50">Password</label>
-                        <input type="password" class="bg-gradient bg-light form-control shadow-sm" id="password-input"
+                        <input [(ngModel)]="user.password" name="password" type="password" class="bg-gradient bg-light form-control shadow-sm" id="password-input"
                             required>
                     </div>
                     <div class="mb-3">
@@ -25,7 +25,8 @@
                             id="confirm-password" required>
                     </div>
                     <button type="submit"
-                        class="bg-gradient btn btn-lg btn-primary pe-5 ps-5 shadow text-light w-100">Sign Up</button>
+                        class="bg-gradient btn btn-lg btn-primary pe-5 ps-5 shadow text-light w-100"
+                        (click)="registerUser()">Sign Up</button>
                 </form>
             </div>
         </div>
