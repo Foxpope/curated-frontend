@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from 'rxjs';
 import { User } from 'src/app/models/user';
-import { awsUrl } from 'src/environments/environment';
+import { awsUrl, localUrl } from 'src/environments/environment';
 import { catchError } from "rxjs/operators";
 
-const url = awsUrl;
+const url = localUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class UserService {
   }
 
   public findAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(url)
+    return this.http.get<User[]>(`${url}/users`)
       .pipe(
         catchError(this.handleError)
       )
