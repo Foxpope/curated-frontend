@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import { BasicAuthHtppInterceptorService } from './services/basic-auth-interceptor-service.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReviewDetailComponent } from './components/review-detail/review-detail.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -42,7 +43,11 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorService, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
