@@ -10,18 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent{
 
-  public user = new User(0, '', '', '', '', '')
+  public user = new User(0, '', '', '', 'Ineedthistotest', 'pleasepleasework')
   public clientMessage = new ClientMessage('')
 
   constructor(private userService: UserService) { }
 
   public registerUser(): void {
-    console.log(this.user)
-    // this.userService.registerUser(this.user)
-    //   .subscribe(
-    //     data => this.clientMessage.message = `succefully added ${data.firstName}`,
-    //     error => this.clientMessage.message = `We got an error : ${error}`
-    //   )
+    this.userService.registerUser(this.user)
+      .subscribe(
+        data => this.clientMessage.message = `succefully added ${data.firstName}`,
+        error => this.clientMessage.message = `We got an error : ${error}`
+      )
   }
 
 }

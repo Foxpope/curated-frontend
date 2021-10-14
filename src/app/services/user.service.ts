@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { awsUrl, localUrl } from 'src/environments/environment';
-import { catchError } from "rxjs/operators";
+import { catchError, map } from "rxjs/operators";
 
 const url = localUrl;
 
@@ -21,7 +21,7 @@ export class UserService {
   }
 
   public registerUser(user: User): Observable<User> {
-    return this.http.post<User>(`${url}/user/add`, user, this.httpOptions).pipe(catchError(this.handleError))
+    return this.http.post<User>(`${url}/register`, user, this.httpOptions).pipe(catchError(this.handleError))
   }
 
   public findAllUsers(): Observable<User[]> {
