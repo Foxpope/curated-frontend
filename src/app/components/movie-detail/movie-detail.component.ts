@@ -13,6 +13,8 @@ export class MovieDetailComponent implements OnInit {
 
   title="Movie Details"
   movie = new Movie('', '', 0, '', '', '', '', '', '', '', '', '', []);
+  current_username = sessionStorage.getItem("username");
+  userReview = '';
 
   public clientMessage: ClientMessage = new ClientMessage('Sorry no movie to display');
 
@@ -25,9 +27,16 @@ export class MovieDetailComponent implements OnInit {
     console.log(this.movie);
   }
 
-  // public findMovieById(id: number) {
-  //   this.movieService.findByMovieId(id).subscribe(data => this.movie = data);
-  // }
+  getUserReview(): string {
+    console.log(this.movie.reviews);
+    for (const review of this.movie.reviews) {
+      if (review.user.username === this.current_username) {
+        console.log(review);
+        return review.review;
+      }
+    }
+    return '';
+  }
 
   getMovie(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
@@ -46,6 +55,9 @@ export class MovieDetailComponent implements OnInit {
         this.movie.runtime = data.runtime;
         this.movie.actors = data.actors;
         this.movie.reviews = data.reviews;
+        this.userReview = this.getUserReview();
       });
   }
+
+  
 }
