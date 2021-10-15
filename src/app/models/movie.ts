@@ -1,5 +1,7 @@
+import { Review } from './review';
+
 export class Movie {
-  id: number;
+  id: string;
   title: string;
   year: number;
   rated: string;
@@ -11,9 +13,10 @@ export class Movie {
   metacritic: string;
   runtime: string;
   actors: string;
+  reviews: Array<Review>;
 
-  constructor(id: number, title: string, year: number, rated: string, released: string,
-    director: string, plot: string, poster: string,   genre: string, metacritic: string, runtime: string, actors: string) {
+  constructor(id: string, title: string, year: number, rated: string, released: string,
+    director: string, plot: string, poster: string,   genre: string, metacritic: string, runtime: string, actors: string, reviews: Array<Review>) {
     this.id = id;
     this.title = title;
     this.year = year;
@@ -26,5 +29,6 @@ export class Movie {
     this.metacritic = metacritic;
     this.runtime = runtime;
     this.actors = actors;
+    this.reviews = reviews;
   }
 }
