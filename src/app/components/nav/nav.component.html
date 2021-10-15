@@ -1,39 +1,29 @@
-<nav class="bg-dark border-bottom navbar navbar-dark navbar-expand-lg shadow-lg" style="box-shadow: 0px 10px 40px 5px #070707 !important; border-color: #373737 !important;">
-    <div class="container-fluid"> 
-        <a href=""><img width="100" src="./assets/curatedLogo.png" class="image-fit pe-2 ps-2" height="auto"></a>
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler74" aria-controls="" aria-expanded="false" aria-label="Toggle navigation"> 
-                <span class="navbar-toggler-icon"></span> 
-            </button>
-            <div class="collapse me-5 ms-5 navbar-collapse" id="navbarToggler74"> 
-                <ul class="gap-lg-2 mb-2 mb-lg-0 me-auto navbar-nav"> 
-                    <li class="nav-item"> 
-                        <a class="nav-link" href="#">Movies</a> 
-                    </li>
-                    <li class="nav-item"> 
-                        <a class="nav-link" href="#">Curators</a> 
-                    </li>
-                    <li class="nav-item"> 
-                        <a class="nav-link" href="#">Lists</a> 
-                    </li>                             
-                </ul>                         
+<nav class="bg-dark border-bottom d-flex navbar navbar-dark navbar-expand-lg shadow-lg" style="box-shadow: 0px 10px 40px 5px #070707 !important; border-color: #373737 !important;">
+    <div class="align-items-center container-fluid d-flex">
+        <div class="col-4 container">
+            <a href="main"><img width="100" src="./assets/curatedLogo.png" class="image-fit pe-2 ps-2" height="auto"></a>
+        </div>
+        <div class="col-4 container">
+            <div class="bg-white d-flex flex-nowrap input-group rounded"> 
+                <select id="formInput290" class="bg-secondary border-0 form-select fw-bold text-white" aria-label="Default select example"> 
+                    <option value="2" selected>Movies</option>                             
+                    <option value="2">Curators</option>                             
+                </select>
+                <input type="text" class="bg-transparent border-0 form-control text-start w-50" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1"> 
             </div>
         </div>
-        <div class="align-content-stretch align-items-center col-auto container d-flex justify-content-start">
-            <div class="dropdown"> 
-                <button class="btn dropdown-toggle text-light" id="dropdown1" data-bs-toggle="dropdown" aria-expanded="false" type="button">                        Welcome, John                    </button>                         
-                <ul class="bg-gradient border border-secondary dropdown-menu dropdown-menu-dark shadow-lg" aria-labelledby="dropdown1"> 
+        <div class="align-content-stretch align-items-center col-4 container float-end justify-content-end text-end">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle text-light" id="dropdown1" data-bs-toggle="dropdown" aria-expanded="false" type="button"> Welcome, John </button>
+                <ul class="bg-gradient border border-secondary dropdown-menu dropdown-menu-dark shadow-lg" aria-labelledby="dropdown1">
                     <li>
-                        <a class="dropdown-item" href="#">Action</a>
-                    </li>                             
+                        <a class="dropdown-item" href="#">Account</a>
+                    </li>
                     <li>
-                        <a class="dropdown-item" href="#">Another action</a>
-                    </li>                             
-                    <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </li>                             
-                </ul>                         
+                        <a class="dropdown-item" href="#">Log Out</a>
+                    </li>
+                </ul>
             </div>
-        </div>                 
+        </div>
     </div>
 </nav>
