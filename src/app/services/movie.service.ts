@@ -19,7 +19,7 @@ export class MovieService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  public findByMovieId(id: number): Observable<Movie> {
+  public findByMovieId(id: string): Observable<Movie> {
     return this.http.get<Movie>(`${url}/${id}`)
       .pipe(
         catchError(this.handleError)
