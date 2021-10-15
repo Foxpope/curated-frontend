@@ -65,7 +65,10 @@ export class MovieDetailComponent implements OnInit {
 
   insertReview() {
     
-    console.log(this.userReview, this.userRating, this.isReviewed);
+    console.log("Review: " + this.userReview);
+    console.log("Rating: " + this.userRating);
+    console.log("Has been reviewed before: " +  this.isReviewed);
+
   }
   
 }

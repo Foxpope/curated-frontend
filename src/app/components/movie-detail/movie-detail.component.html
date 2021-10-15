@@ -21,14 +21,20 @@
       />
     </div>
     <div class="col-12 col-md-8 col-sm-12 container">
-      <div class="container mt-3 p-2">
+      <div class="container p-2">
         <div
           class="align-items-center border-bottom col-11 container d-flex gx-5"
         >
           <h3 class="p-2 text-start">{{ movie.title }}</h3>
           <div class="col-auto container d-flex justify-content-center">
             <div class="star-rating__wrap">
-              <input
+              <rating
+                style="color: #c7e710; font-size: 20px"
+                [(ngModel)]="userRating"
+                [max]="5"
+                [readonly]="false"
+              ></rating>
+              <!-- <input
                 class="star-rating__input"
                 id="star-rating-5"
                 type="radio"
@@ -87,7 +93,7 @@
                 class="star-rating__ico fa fa-star-o fa-lg"
                 for="star-rating-1"
                 title="1 out of 5 stars"
-              ></label>
+              ></label> -->
             </div>
           </div>
         </div>
@@ -138,8 +144,8 @@
               rows="3"
               name="Review"
               style="box-shadow: inset 0px 0px 80px 0px #000000"
-              >{{ userReview }}</textarea
-            >
+              [(ngModel)]="userReview"
+            ></textarea>
           </div>
           <button
             type="button"
@@ -153,6 +159,7 @@
               shadow-sm
               text-light
             "
+            (click)="insertReview()"
           >
             Save
           </button>
@@ -161,7 +168,7 @@
     </div>
   </div>
 
-  <!-- ALL USER REVIEWS FOR MOVIE!!!!! -->
+  <!-- ALL USER REVIEWS!!!!! -->
   <div
     class="col-12 container-fluid d-flex flex-wrap text-light mh-100 min-vh-100"
     id="override"
