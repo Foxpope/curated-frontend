@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientMessage } from 'src/app/models/client-messages';
 import { MovieService } from 'src/app/services/movie.service';
+import { ReviewService } from 'src/app/services/review.service';
 import { Movie } from 'src/app/models/movie';
 
 @Component({
@@ -14,11 +15,14 @@ export class MovieDetailComponent implements OnInit {
   title="Movie Details"
   movie = new Movie('', '', 0, '', '', '', '', '', '', '', '', '', []);
   current_username = sessionStorage.getItem("username");
-  userReview = '';
+  userReview: string = '';
+  userRating: number = 0;
+  isReviewed: boolean = false;
 
   public clientMessage: ClientMessage = new ClientMessage('Sorry no movie to display');
 
   constructor(private movieService: MovieService, 
+    private reviewService: ReviewService,
     private route: ActivatedRoute) { 
   }
 
@@ -27,15 +31,15 @@ export class MovieDetailComponent implements OnInit {
     console.log(this.movie);
   }
 
-  getUserReview(): string {
+  getUserReview(): [string, number, boolean] {
     console.log(this.movie.reviews);
     for (const review of this.movie.reviews) {
       if (review.user.username === this.current_username) {
         console.log(review);
-        return review.review;
+        return [review.review, review.rating, true];
       }
     }
-    return '';
+    return ['', 0, false];
   }
 
   getMovie(): void {
@@ -55,9 +59,13 @@ export class MovieDetailComponent implements OnInit {
         this.movie.runtime = data.runtime;
         this.movie.actors = data.actors;
         this.movie.reviews = data.reviews;
-        this.userReview = this.getUserReview();
+        [this.userReview, this.userRating, this.isReviewed] = this.getUserReview();
       });
   }
 
+  insertReview() {
+    
+    console.log(this.userReview, this.userRating, this.isReviewed);
+  }
   
 }

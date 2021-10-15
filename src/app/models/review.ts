@@ -1,15 +1,15 @@
 import { User } from 'src/app/models/user';
 import { Movie } from './movie';
 export class Review {
-  reviewId: number;
+  id: number;
   rating: number;
   recommended: boolean;
   review: string;
   movie: Movie;
   user: User;
 
-  constructor(reviewId: number, rating: number, recommended: boolean, review: string, movie: Movie, user: User) {
-    this.reviewId = reviewId;
+  constructor(id: number, rating: number, recommended: boolean, review: string, movie: Movie, user: User) {
+    this.id = id;
     this.rating = rating;
     this.recommended = recommended;
     this.review = review;
