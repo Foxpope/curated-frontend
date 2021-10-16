@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent{
 
+  alertStatus:Boolean=false;
   public clientMessage = new ClientMessage('')
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
@@ -23,7 +24,9 @@ export class LoginComponent{
           data => {
             this.router.navigateByUrl('/main');
           },
-          error => this.clientMessage.message = `We got an error : ${error}`
+          error => {
+            this.clientMessage.message = `We got an error : ${error}`; this.alertStatus = true;}
+
         )
     }
   }
