@@ -33,7 +33,10 @@ export class UserHomepageComponent implements OnInit {
       }
     );
 
-    this.userService.findByUsername(this.username).subscribe(data => this.user = data)
+    this.userService.findByUsername(this.username).subscribe(data => {
+      this.user = data
+      console.log(this.user)
+    })
 
   }
 

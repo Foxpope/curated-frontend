@@ -1,0 +1,25 @@
+<div class="mt-5 underline">
+  <h3><u>Followers:</u></h3>
+  <div class="list-group">
+    <div class="my-3 border px-3 pt-1" *ngFor="let follow of followersList">
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-1">
+          <a
+            [routerLink]="['/user-homepage']"
+            [queryParams]="{ username: follow.follower.username }"
+            >{{ follow.follower.username }}</a
+          >
+        </h4>
+        <h4>{{ follow.followDate }}</h4>
+      </div>
+      <button
+        *ngIf="follow.follower.id !== currentUserId"
+        (click)="followUser(follow.follower.id)"
+      >
+        <span>{{
+          isFollowing(follow.follower.id) ? "Unfollow" : "Follow"
+        }}</span>
+      </button>
+    </div>
+  </div>
+</div>
