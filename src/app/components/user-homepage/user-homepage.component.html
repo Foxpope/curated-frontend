@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>{{ user.username }}</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>{{ user.firstName }} {{ user.lastName }}</p>
+            <li>
+                <button (click)="populateReviews()" class="navbtn">Reviews</button>
+            </li>
+            <li>
+                <button (click)="populateFollowing()" class="navbtn">Following</button>
+            </li>
+            <li>
+                <button (click)="populateFollowers()" class="navbtn">Followers</button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div id="ul-wrapper">
+            <ul id="ul-contents">
+                <h4 id="list-header">a header for the list</h4>
+                <li id="item-1">a list item</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
