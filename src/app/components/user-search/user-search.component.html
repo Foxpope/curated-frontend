@@ -4,6 +4,6 @@
     aria-label="Search" aria-describedby="basic-addon1" (input)="search(searchBox.value)">
 </div>
 <ng-container *ngFor="let user of users$ | async">
-  <button type="button" class="list-group-item list-group-item-action">{{user.username}}</button>
+  <a routerLink="/user-details/{{user.id}}" type="button" class="list-group-item list-group-item-action">{{user.username}}</a>
 </ng-container>
 =
