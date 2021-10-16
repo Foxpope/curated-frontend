@@ -18,16 +18,8 @@ export class MovieDetailComponent implements OnInit {
   movie = new Movie('', '', 0, '', '', '', '', '', '', '', '', '', []);
   userReviewObject = new Review(0, 0, false, '', this.movie, new User(0, '', '', '', '', '', [], [], []));
   current_username = sessionStorage.getItem("username");
-  // userReview: string = '';
-  // userRating: number = 0;
-  // isReviewed: boolean = false;
 
-  // this.id = id;
-  // this.rating = rating;
-  // this.recommended = recommended;
-  // this.review = review;
-  // this.movie = movie;
-  // this.user = user;
+  
   public clientMessage: ClientMessage = new ClientMessage('Sorry no movie to display');
 
   constructor(private movieService: MovieService, 
@@ -46,7 +38,6 @@ export class MovieDetailComponent implements OnInit {
       if (review.user.username === this.current_username) {
         this.userReviewObject = review;
         this.userReviewObject.movie = this.movie;
-        console.log(this.userReviewObject);
       }
     }
   }
@@ -73,8 +64,7 @@ export class MovieDetailComponent implements OnInit {
   }
 
   insertReview() {
-
-
+    // Adding or updating?
     if (this.userReviewObject.id === 0) {
       console.log("adding review");
       this.reviewService.addReview(this.userReviewObject)
@@ -99,7 +89,6 @@ export class MovieDetailComponent implements OnInit {
       });
     }
 
-    // this.reviewService.addReview()
   }
   
 }

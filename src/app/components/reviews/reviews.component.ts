@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Review } from 'src/app/models/review';
 
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.css']
 })
-export class ReviewsComponent implements OnInit {
+export class ReviewsComponent {
 
-  constructor() { }
+  @Input() reviews : Review[] = [];
 
-  ngOnInit(): void {
+  constructor() { 
   }
 
+  ngOnChanges() {
+    this.reviews.forEach((review) => {
+      console.log(review.review);
+    })
+  }
 }
