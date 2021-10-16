@@ -34,9 +34,8 @@ export class UserHomepageComponent implements OnInit {
     );
 
     this.userService.findByUsername(this.username).subscribe(data => {
-      console.log(data)
       this.user = data
-      console.log(this.user.reviews)
+      console.log(this.user)
     })
 
   }
@@ -44,59 +43,51 @@ export class UserHomepageComponent implements OnInit {
   public populateReviews(): void {
 
     let header = document.createElement('h4')
+
     header.id = 'list-header'
+
     let header_placeholder = document.createTextNode(this.username + '\'s Reviews')
+
     header.appendChild(header_placeholder)
+
     let dummyHeader = document.getElementById('list-header')!
+
     let parent = dummyHeader?.parentNode
+
     parent?.replaceChild(header, dummyHeader)
-
-    let x = document.getElementById('reviewList')!
-    x.style.display = "block";
-
-    let y = document.getElementById('followingList')!
-    y.style.display = "none";
-
-    let z = document.getElementById('followerList')!
-    z.style.display = "none";
+   
   }
 
   public populateFollowing(): void {
     let header = document.createElement('h4')
+
     header.id = 'list-header'
+
     let header_placeholder = document.createTextNode('Who is ' + this.user.username + ' Following?')
+
     header.appendChild(header_placeholder)
+
     let dummyHeader = document.getElementById('list-header')!
+
     let parent = dummyHeader?.parentNode
+
     parent?.replaceChild(header, dummyHeader)
-
-    let x = document.getElementById('reviewList')!
-    x.style.display = "none";
-
-    let y = document.getElementById('followingList')!
-    y.style.display = "block";
-
-    let z = document.getElementById('followerList')!
-    z.style.display = "none";
   }
 
   public populateFollowers(): void {
     let header = document.createElement('h4')
+
     header.id = 'list-header'
+
     let header_placeholder = document.createTextNode(this.user.username + '\'s Followers')
+
     header.appendChild(header_placeholder)
+
     let dummyHeader = document.getElementById('list-header')!
+
     let parent = dummyHeader?.parentNode
+
     parent?.replaceChild(header, dummyHeader)
-
-    let x = document.getElementById('reviewList')!
-    x.style.display = "none";
-
-    let y = document.getElementById('followingList')!
-    y.style.display = "none";
-
-    let z = document.getElementById('followerList')!
-    z.style.display = "block";
   }
 
 }

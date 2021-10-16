@@ -26,7 +26,6 @@ export class MoviesComponent implements OnInit {
     this.route.params.subscribe(routeParams => {
       this.getMovies(routeParams.search);
     });
-    console.log(this.movie);
   }
 
   public searchApi(movie: string) {
@@ -62,7 +61,7 @@ export class MoviesComponent implements OnInit {
     this.movieService.searchMoviesByApiGeneric(term)
       .subscribe(
         data => {
-          this.moviesArray = data
+          this.moviesArray = data['Search']
           console.log(this.moviesArray)
         },
         error => console.error(error)

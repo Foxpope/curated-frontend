@@ -59,8 +59,8 @@ export class MovieService {
       )
   }
 
-  public searchMoviesByApiGeneric(movie: string): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`http://www.omdbapi.com/?s=${movie}&apikey=81dd7f9d`)
+  public searchMoviesByApiGeneric(movie: string): Observable<any[]> {
+    return this.http.get<any[]>(`http://www.omdbapi.com/?s=${movie}&apikey=81dd7f9d`)
       .pipe(
         catchError(this.handleError)
       )

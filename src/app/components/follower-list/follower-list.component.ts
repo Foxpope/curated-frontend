@@ -4,15 +4,15 @@ import { FollowService } from 'src/app/services/follow.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 import { Follow } from 'src/app/models/follow';
-
 @Component({
-  selector: 'app-reviews',
-  templateUrl: './reviews.component.html',
-  styleUrls: ['./reviews.component.css']
+  selector: 'app-follower-list',
+  templateUrl: './follower-list.component.html',
+  styleUrls: ['./follower-list.component.css']
 })
-export class ReviewsComponent implements OnInit {
+export class FollowerListComponent implements OnInit {
 
-  @Input() reviews : Review[] = [];
+
+  @Input() followersList : Follow[] = [];
   currentUserId = Number(JSON.parse(sessionStorage.getItem('userId')!));
   public currentUser = new User(0, '', '', '', '', '', [], [], [])
   username = sessionStorage.getItem("username");
@@ -49,6 +49,8 @@ export class ReviewsComponent implements OnInit {
   }
 
   ngOnChanges() {
+    
+    console.log(this.followersList);
   }
 
   isFollowing(userId: number): boolean {
@@ -79,6 +81,4 @@ export class ReviewsComponent implements OnInit {
         .subscribe(data => this.currentUser.following.push(data))
     }
   }
-
-
 }
