@@ -46,16 +46,6 @@ export class UserService {
       );
   }
 
-  searchMovies(term: string): Observable<Movie[]> {
-    if(!term.trim()) {
-      return of([])
-    }
-    return this.http.get<Movie[]>(`${url}/movies/search/?q=${term}`).
-    pipe(
-      catchError(this.handleError)
-    )
-  }
-
   searchUsers(term: string): Observable<User[]> {
     console.log(term);
     if (!term.trim()) {

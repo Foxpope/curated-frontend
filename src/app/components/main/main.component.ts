@@ -23,7 +23,6 @@ export class MainComponent implements OnInit {
     const temp = sessionStorage.getItem('username');
     let username = temp ? JSON.stringify(temp) : "";
     username = username.substring(1, username.length - 1);
-    console.log(username);
     this.userService.findByUsername(username)
       .subscribe(
         user => {
@@ -36,9 +35,9 @@ export class MainComponent implements OnInit {
           this.u.following = user.following;
           this.u.followers = user.followers
           this.u.reviews = user.reviews;
+          sessionStorage.setItem('userId', JSON.stringify(user.id));
         },
         error => this.clientMessage.message = `We got an error : ${error}`
       )
-    console.log(this.u);
   }
 }
