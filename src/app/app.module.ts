@@ -1,3 +1,4 @@
+import { UserSearchComponent } from './components/user-search/user-search.component';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-interceptor-service.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReviewDetailComponent } from './components/review-detail/review-detail.component';
@@ -21,6 +22,9 @@ import { MainComponent } from './components/main/main.component';
 import { FormsModule } from '@angular/forms';
 import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { MatSelectModule } from '@angular/material/select'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -37,13 +41,17 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     WelcomeComponent,
     LoginComponent,
     MainComponent,
-    UserHomepageComponent
+    UserHomepageComponent,
+    UserSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
     HttpClientModule,
+
     NgbModule,
     RatingModule.forRoot()
   ],

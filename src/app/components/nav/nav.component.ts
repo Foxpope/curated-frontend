@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  selected = 'movies'
+  firstName = sessionStorage.getItem('firstName')
+
   constructor() { }
 
   ngOnInit(): void {

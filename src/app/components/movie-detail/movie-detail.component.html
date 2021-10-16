@@ -4,7 +4,16 @@
   style="background: radial-gradient(transparent, #000000), #320b39"
 >
   <div
-    class="col-12 container-fluid d-flex flex-wrap text-light mh-100 min-vh-100"
+    class="
+      col-12
+      container-fluid
+      d-flex
+      flex-wrap
+      justify-content-center
+      text-light
+      mh-100
+      min-vh-100
+    "
     id="override"
   >
     <div
@@ -30,7 +39,7 @@
             <div class="star-rating__wrap">
               <rating
                 style="color: #c7e710; font-size: 20px"
-                [(ngModel)]="userRating"
+                [(ngModel)]="userReviewObject.rating"
                 [max]="5"
                 [readonly]="false"
               ></rating>
@@ -126,6 +135,24 @@
           <h6 class="col-2 text-white-50">Actors:</h6>
           <h6>{{ movie.actors }}</h6>
         </div>
+
+        <div
+          class="
+            col-10
+            container
+            d-flex
+            gap-1
+            me-5
+            ms-5
+            mt-1
+            pb-1
+            align-items-center align-text-center
+          "
+        >
+          <label class="mb-0" for="">recommend: </label>
+          <input type="checkbox" [(ngModel)]="userReviewObject.recommended" />
+        </div>
+
         <div class="col-11 container mt-3">
           <div class="mb-3 mt-3">
             <label for="formInput26" class="form-label fw-bold text-light"
@@ -144,7 +171,7 @@
               rows="3"
               name="Review"
               style="box-shadow: inset 0px 0px 80px 0px #000000"
-              [(ngModel)]="userReview"
+              [(ngModel)]="userReviewObject.review"
             ></textarea>
           </div>
           <button
@@ -166,24 +193,8 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- ALL USER REVIEWS!!!!! -->
-  <div
-    class="col-12 container-fluid d-flex flex-wrap text-light mh-100 min-vh-100"
-    id="override"
-  >
-    <div class="list-group">
-      <div class="my-3" *ngFor="let review of movie.reviews">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{ review.user.username }}</h5>
-          <small>{{ review.rating }}/5</small>
-        </div>
-        <p class="mb-1">
-          {{ review.review }}
-        </p>
-        <hr />
-      </div>
-    </div>
+    <hr />
+    <app-reviews [reviews]="movie.reviews"></app-reviews>
   </div>
 </div>

@@ -4,6 +4,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { awsUrl, localUrl } from 'src/environments/environment';
 import { catchError, map } from "rxjs/operators";
 import { Review } from '../models/review';
+import { Movie } from '../models/movie';
+import { User } from '../models/user';
 
 const url = localUrl + '/reviews';
 
@@ -17,8 +19,14 @@ export class ReviewService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
+
   public addReview(review: Review): Observable<Review> {
-    return this.http.post<Review>(`${url}`, review, this.httpOptions).pipe(catchError(this.handleError))
+    // Do this to avoid "object references an unsaved transient instance"
+    let userId = Number(JSON.parse(sessionStorage.getItem('userId')!))
+    review.movie = new Movie(review.movie.id, '', 0, '', '', '', '', '', '', '', '', '', []);
+    review.user = new User(userId, '', '', '', '', '', [], [], []);
+    console.log(review)
+    return this.http.post<Review>(`${url}/add`, review, this.httpOptions).pipe(catchError(this.handleError))
   }
 
   public findAllReviews(): Observable<Review[]> {
@@ -28,8 +36,11 @@ export class ReviewService {
       )
   }
 
-  public updateReview(review: Review, id: number): Observable<Review> {
-    return this.http.put<Review>(`${url}/${id}`, review, this.httpOptions).pipe(catchError(this.handleError))
+  public updateReview(review: Review): Observable<Review> {
+    // Do this to avoid "object references an unsaved transient instance"
+    review.movie = new Movie(review.movie.id, '', 0, '', '', '', '', '', '', '', '', '', []);
+    review.user = new User(review.user.id, '', '', '', '', '', [], [], []);
+    return this.http.put<Review>(`${url}/${review.id}`, review, this.httpOptions).pipe(catchError(this.handleError))
   }
 
   private handleError(httpError: HttpErrorResponse) {
