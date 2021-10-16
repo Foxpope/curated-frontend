@@ -10,3 +10,8 @@
     </li>
   </ul>
 </div>
+
+<form>
+  <input type="text" #movie id="movie">
+  <button (click)="searchApi(movie.value)">find movie</button>
+</form>

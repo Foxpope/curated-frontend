@@ -12,6 +12,7 @@ export class UsersComponent implements OnInit {
 
   title="All Users"
   public users: User[] = [];
+  public id: number | undefined
 
   // use structural directive to check IF we have users, and if not, then we show the client message
   public clientMessage: ClientMessage = new ClientMessage('Sorry no users to display');
@@ -19,11 +20,13 @@ export class UsersComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-
     this.findAllUsers();
+    this.id = Number(JSON.parse(sessionStorage.getItem('userId')!))
+    console.log(this.id)
   }
 
   public findAllUsers() {
     this.userService.findAllUsers().subscribe(data => this.users = data)
   }
+
 }
