@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
+  selected = 'movies'
   constructor() { }
 
   ngOnInit(): void {

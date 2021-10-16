@@ -36,6 +36,7 @@ export class MainComponent implements OnInit {
           this.u.followers = user.followers
           this.u.reviews = user.reviews;
           sessionStorage.setItem('userId', JSON.stringify(user.id));
+          sessionStorage.setItem('firstName', user.firstName);
         },
         error => this.clientMessage.message = `We got an error : ${error}`
       )
