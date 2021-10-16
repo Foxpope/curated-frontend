@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent{
 
-  public user = new User(0, '', '', '', '', '')
+  public user = new User(0, '', '', '', '', '', [], [], [])
   public clientMessage = new ClientMessage('')
 
   constructor(private userService: UserService, private router: Router) { }

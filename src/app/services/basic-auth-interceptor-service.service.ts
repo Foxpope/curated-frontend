@@ -13,11 +13,11 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
     if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${jwt}`
+          "Authorization": `Bearer ${jwt}`
         }
       })
     }
-
+    console.log(req);
     return next.handle(req);
 
   }

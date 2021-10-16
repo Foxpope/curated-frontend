@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { awsUrl, localUrl } from 'src/environments/environment';
 import { catchError, map } from "rxjs/operators";
+import { Movie } from '../models/movie';
 
 const url = localUrl;
 
@@ -39,11 +40,33 @@ export class UserService {
   }
   public findByUsername(username: string): Observable<User> {
 
-    return this.http.get<User>(`${url}/find/${username}`)
+    return this.http.get<User>(`${url}/users/?username=${username}`)
       .pipe(
         catchError(this.handleError)
       );
   }
+
+  searchMovies(term: string): Observable<Movie[]> {
+    if(!term.trim()) {
+      return of([])
+    }
+    return this.http.get<Movie[]>(`${url}/movies/search/?q=${term}`).
+    pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  searchUsers(term: string): Observable<User[]> {
+    console.log(term);
+    if (!term.trim()) {
+      return of([])
+    }
+    return this.http.get<User[]>(`${url}/users/search/?u=${term}`).
+      pipe(
+        catchError(this.handleError)
+      )
+  }
+
   private handleError(httpError: HttpErrorResponse) {
     if (httpError instanceof ErrorEvent) {
       console.log('And error occurred: ', httpError);

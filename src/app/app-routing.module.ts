@@ -10,6 +10,7 @@ import { UserHomepageComponent } from './components/user-homepage/user-homepage.
 
 const routes: Routes = [
   {path:'movie-detail',component:MovieDetailComponent},
+  {path:'movie-detail/:id',component:MovieDetailComponent},
   {path:'welcome',component:WelcomeComponent},
   {path:'registration', component:RegistrationComponent},
   {path:'login', component:LoginComponent},

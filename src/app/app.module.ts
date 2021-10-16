@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { FormsModule } from '@angular/forms';
 import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UserHomepageComponent } from './components/user-homepage/user-homepage.
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    RatingModule.forRoot()
   ],
   providers: [
     {

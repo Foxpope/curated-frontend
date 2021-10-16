@@ -19,9 +19,8 @@ export class AuthenticationService {
         catchError(this.handleError),
         map(userData => {
           sessionStorage.setItem("username", username);
-          let tokenStr = "Bearer " + userData.token;
+          let tokenStr = userData.token;
           sessionStorage.setItem("token", tokenStr);
-          console.log(userData);
           return userData;
         })
       );

@@ -15,11 +15,6 @@
                             required>
                     </div>
                     <div class="mb-3">
-                        <label for="password-input" class="lead text-white-50">Password</label>
-                        <input [(ngModel)]="user.password" name="password" type="password" class="bg-gradient bg-light form-control shadow-sm" id="password-input"
-                            required>
-                    </div>
-                    <div class="mb-3">
                       <label for="firstname-input" class="lead text-white-50">First Name</label>
                       <input [(ngModel)]="user.firstName" name="firstName" type="text" class="bg-gradient bg-light form-control shadow-sm"
                         id="firstname-input" required>
@@ -28,6 +23,11 @@
                       <label for="lastname-input" class="lead text-white-50">Last Name</label>
                       <input [(ngModel)]="user.lastName" name="lastName" type="text" class="bg-gradient bg-light form-control shadow-sm"
                         id="lastname-input" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password-input" class="lead text-white-50">Password</label>
+                      <input [(ngModel)]="user.password" name="password" type="password" class="bg-gradient bg-light form-control shadow-sm"
+                        id="password-input" required>
                     </div>
                     <div class="mb-3">
                         <label for="confirm-password" class="lead text-white-50">Confirm Password</label>
