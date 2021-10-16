@@ -2,8 +2,13 @@
   <h3><u>Reviews:</u></h3>
   <div class="list-group">
     <div class="my-3" *ngFor="let review of reviews">
+      <h3 class="mb-1" *ngIf="review.movie">
+        <a href="movie-detail/{{ review.movie.id }}"
+          ><b>{{ review.movie.title }}</b></a
+        >
+      </h3>
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ review.review }}</h5>
+        <h3 class="mb-1">{{ review.review }}</h3>
         <small class="ml-3">
           <rating
             style="color: #c7e710; font-size: 20px"
@@ -13,8 +18,8 @@
           ></rating>
         </small>
       </div>
-      <p *ngIf="review.recommended === true">&#9757;</p>
-      <p *ngIf="review.recommended === false">&#9759;</p>
+      <h1 *ngIf="review.recommended === true">&#9757;</h1>
+      <h1 *ngIf="review.recommended === false">&#9759;</h1>
       <div class="d-flex d-flex-row justify-content-between">
         <p class="mb-1">
           <a

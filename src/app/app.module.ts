@@ -24,6 +24,8 @@ import { UserHomepageComponent } from './components/user-homepage/user-homepage.
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { MatSelectModule } from '@angular/material/select'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FollowingListComponent } from './components/following-list/following-list.component';
+import { FollowerListComponent } from './components/follower-list/follower-list.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     MainComponent,
     UserHomepageComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    FollowingListComponent,
+    FollowerListComponent
   ],
   imports: [
     BrowserModule,
