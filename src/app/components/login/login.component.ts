@@ -30,4 +30,9 @@ export class LoginComponent{
         )
     }
   }
+  public alertReset()
+  {
+    this.alertStatus = false;
+  }
 }
+
