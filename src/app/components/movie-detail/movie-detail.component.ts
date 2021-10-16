@@ -19,16 +19,18 @@ export class MovieDetailComponent implements OnInit {
   userReviewObject = new Review(0, 0, false, '', this.movie, new User(0, '', '', '', '', '', [], [], []));
   current_username = sessionStorage.getItem("username");
 
-  
+
   public clientMessage: ClientMessage = new ClientMessage('Sorry no movie to display');
 
-  constructor(private movieService: MovieService, 
+  constructor(private movieService: MovieService,
     private reviewService: ReviewService,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.getMovie();
+    this.route.params.subscribe(routeParams => {
+      this.getMovie(routeParams.id);
+    });
     console.log(this.movie);
   }
 
@@ -42,8 +44,7 @@ export class MovieDetailComponent implements OnInit {
     }
   }
 
-  getMovie(): void {
-    const id = String(this.route.snapshot.paramMap.get('id'));
+  getMovie(id: string): void {
     this.movieService.findByMovieId(id)
       .subscribe(data => {
         this.movie.id = data.id;
@@ -90,5 +91,5 @@ export class MovieDetailComponent implements OnInit {
     }
 
   }
-  
+
 }

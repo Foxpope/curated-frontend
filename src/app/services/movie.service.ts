@@ -52,13 +52,19 @@ export class MovieService {
     )
   }
 
-    public searchMoviesByApiSpecific(movie: string): Observable<any> {
+  public searchMoviesByApiSpecific(movie: string): Observable<any> {
     return this.http.get<any>(`http://www.omdbapi.com/?t=${movie}&apikey=81dd7f9d`)
       .pipe(
         catchError(this.handleError)
       )
   }
 
+  public searchMoviesByApiGeneric(movie: string): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`http://www.omdbapi.com/?s=${movie}&apikey=81dd7f9d`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
 
   private handleError(httpError: HttpErrorResponse) {
     if (httpError instanceof ErrorEvent) {

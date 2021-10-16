@@ -30,6 +30,7 @@ export class MovieSearchComponent implements OnInit {
   }
 
   public searchApi(movie: string) {
+
     this.movieService.searchMoviesByApiSpecific(movie)
       .subscribe(
         // data => data.forEach(movie => this.movieService.addMovie(movie)),
