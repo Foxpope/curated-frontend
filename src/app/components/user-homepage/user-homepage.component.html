@@ -8,15 +8,15 @@
         </div>
 
         <ul class="list-unstyled components">
-            <p>{{ fname_lname }}</p>
+            <p>{{ user.firstName }} {{ user.lastName }}</p>
             <li>
-                <a href="#">About</a>
+                <button (click)="populateReviews()" class="navbtn">Reviews</button>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <button (click)="populateFollowing()" class="navbtn">Following</button>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <button (click)="populateFollowers()" class="navbtn">Followers</button>
             </li>
         </ul>
     </nav>
@@ -37,12 +37,10 @@
             </div>
         </nav>
 
-        <div>
-            <ul>
-                <h4>a list of whatever matches with the sidebar selection</h4>
-                <li>a review</li>
-                <li>or a movie</li>
-                <li>or user</li>
+        <div id="ul-wrapper">
+            <ul id="ul-contents">
+                <h4 id="list-header">a header for the list</h4>
+                <li id="item-1">a list item</li>
             </ul>
         </div>
 
