@@ -25,32 +25,30 @@
         <h3 class="fs-3 fw-lighter mb-4 text-center text-light text-uppercase">
           Sign in
         </h3>
-        <form role="form" class="text-light">
+        <form #userForm="ngForm" class="text-light" (ngSubmit)="login(userForm)" ngNativeValidate>
           <div class="mb-3">
-            <label for="username-input" class="lead text-white-50"
+            <label for="user" class="lead text-white-50"
               >Username</label
             >
             <input
-              [(ngModel)]="lf.username"
-              type="username"
-              name="username"
+              type="text"
+              name="user"
               class="bg-gradient bg-light form-control shadow-sm"
-              id="username-input"
-              value="tjohnson"
+              id="user"
+              ngModel
               required
             />
           </div>
           <div class="mb-3">
-            <label for="password-input" class="lead text-white-50"
+            <label for="password" class="lead text-white-50"
               >Password</label
-            >
+              >
             <input
-              [(ngModel)]="lf.password"
               type="password"
               name="password"
               class="bg-gradient bg-light form-control shadow-sm"
-              id="password-input"
-              value="password"
+              id="password"
+              ngModel
               required
             />
           </div>
@@ -66,7 +64,6 @@
               text-light
               w-100
             "
-            (click)="login()"
           >
             Sign In
           </button>
