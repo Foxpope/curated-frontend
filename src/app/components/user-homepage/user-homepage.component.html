@@ -40,7 +40,13 @@
         <div id="ul-wrapper">
             <ul id="ul-contents">
                 <h4 id="list-header">a header for the list</h4>
-                <li id="item-1">a list item</li>
+                
+                <app-reviews [reviews]="user.reviews" id="reviewList"></app-reviews>
+
+                <li id="followingList">followings</li>
+
+                <li id="followerList">followers</li>
+                
             </ul>
         </div>
 
