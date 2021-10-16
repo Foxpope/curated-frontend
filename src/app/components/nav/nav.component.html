@@ -1,35 +1,38 @@
-<nav class="bg-dark border-bottom d-flex navbar navbar-dark navbar-expand-lg shadow-lg h-63" style="box-shadow: 0px 10px 40px 5px #070707 !important; border-color: #373737 !important;">
-    <div class="align-items-center container-fluid d-flex">
-        <div class="col-4 container">
-            <a href="main"><img width="100" src="./assets/curatedLogo.png" class="image-fit pe-2 ps-2" height="auto"></a>
-        </div>
-        <div class="col-4 container">
-            <div class="bg-white d-flex flex-nowrap input-group rounded h-46">
-                <select [(ngModel)]="selected" id="formInput290" class="bg-secondary border-0 form-select fw-bold text-white" aria-label="Default select example">
-                    <option value="movies">Movies</option>
-                    <option value="curators">Curators</option>
-                </select>
-                <ng-container *ngIf="selected === 'movies'">
-                  <app-movie-search></app-movie-search>
-                </ng-container>
-                <ng-container *ngIf="selected === 'curators'">
-                  <app-user-search></app-user-search>
-                </ng-container>
-                <!-- <input type="text" class="bg-transparent border-0 form-control text-start w-50" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1"> -->
-            </div>
-        </div>
-        <div class="align-content-stretch align-items-center col-4 container float-end justify-content-end text-end">
-            <div class="dropdown">
-                <button class="btn dropdown-toggle text-light" id="dropdown1" data-bs-toggle="dropdown" aria-expanded="false" type="button"> Welcome, {{firstName}} </button>
-                <ul class="bg-gradient border border-secondary dropdown-menu dropdown-menu-dark shadow-lg" aria-labelledby="dropdown1">
-                    <li>
-                        <a class="dropdown-item" href="#">Account</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Log Out</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
+<ng-container *ngIf="!this.currentRoute.startsWith('/movies') && this.currentRoute !== '/register' && this.currentRoute !== '/login'">
+  <nav class="bg-dark border-bottom d-flex navbar navbar-dark navbar-expand-lg h-63 z-100" style="box-shadow: 0px 2px 5px 2px #070707 !important; border-color: #373737 !important;">
+      <div class="align-items-center container-fluid d-flex">
+          <div class="col-4 container">
+              <a href="main"><img width="100" src="./assets/curatedLogo.png" class="image-fit pe-2 ps-2" height="auto"></a>
+          </div>
+          <div class="col-4 container">
+              <div class="bg-white d-flex flex-nowrap input-group rounded h-46">
+                  <select [(ngModel)]="selected" id="formInput290" class="bg-secondary border-0 form-select fw-bold text-white" aria-label="Default select example">
+                      <option value="movies">Movies</option>
+                      <option value="curators">Curators</option>
+                  </select>
+                  <ng-container *ngIf="selected === 'movies'">
+                    <app-movie-search></app-movie-search>
+                  </ng-container>
+                  <ng-container *ngIf="selected === 'curators'">
+                    <app-user-search></app-user-search>
+                  </ng-container>
+                  <!-- <input type="text" class="bg-transparent border-0 form-control text-start w-50" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1"> -->
+              </div>
+          </div>
+          <div class="align-content-stretch align-items-center col-4 container float-end justify-content-end text-end">
+              <div class="dropdown">
+                  <button class="btn dropdown-toggle text-light" id="dropdown1" data-bs-toggle="dropdown" aria-expanded="false" type="button"> Welcome, {{firstName}} </button>
+                  <ul class="bg-gradient border border-secondary dropdown-menu dropdown-menu-dark shadow-lg" aria-labelledby="dropdown1">
+                      <li>
+                          <a class="dropdown-item" href="#">Account</a>
+                      </li>
+                      <li>
+                          <a class="dropdown-item" href="#">Log Out</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </nav>
+</ng-container>
+<!-- <ng-container (onChange)='getPath()'></ng-container> -->

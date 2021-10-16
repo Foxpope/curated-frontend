@@ -1,3 +1,4 @@
+import { MoviesComponent } from './components/movies/movies.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,13 +13,14 @@ import { UserHomepageComponent } from './components/user-homepage/user-homepage.
 const routes: Routes = [
   {path:'movie-detail',component:MovieDetailComponent},
   {path:'movie-detail/:id',component:MovieDetailComponent},
+  {path:'movies/:search', component:MoviesComponent},
   {path:'welcome',component:WelcomeComponent},
   {path:'registration', component:RegistrationComponent},
   {path:'login', component:LoginComponent},
   {path:'users', component:UsersComponent},
   {path:'movie-search', component:MovieSearchComponent},
   {path:'main', component:MainComponent}, //if logged in...
-  {path: 'user-homepage', component:UserHomepageComponent}, 
+  {path: 'user-homepage', component:UserHomepageComponent},
   {path:'',component:WelcomeComponent},
 ];
 

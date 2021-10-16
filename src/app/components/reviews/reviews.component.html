@@ -15,7 +15,21 @@
       </div>
       <p *ngIf="review.recommended === true">&#9757;</p>
       <p *ngIf="review.recommended === false">&#9759;</p>
-      <p class="mb-1">{{ review.user.username }}</p>
+      <div class="d-flex d-flex-row justify-content-between">
+        <p class="mb-1">
+          <a
+            [routerLink]="['/user-homepage']"
+            [queryParams]="{ username: review.user.username }"
+            >{{ review.user.username }}</a
+          >
+        </p>
+        <button
+          *ngIf="review.user.id !== currentUserId"
+          (click)="followUser(review.user.id)"
+        >
+          <span>{{ isFollowing(review.user.id) ? "Unfollow" : "Follow" }}</span>
+        </button>
+      </div>
       <hr />
     </div>
   </div>

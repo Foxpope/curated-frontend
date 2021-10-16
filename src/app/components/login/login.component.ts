@@ -3,6 +3,7 @@ import { AuthenticationService } from './../../services/authentication-service.s
 import { LoginForm } from './../../models/login-form';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +12,22 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent{
 
+  alertStatus:Boolean=false;
   public clientMessage = new ClientMessage('')
-  public lf = new LoginForm("", "");
   constructor(private authenticationService: AuthenticationService, private router: Router) { }
 
-  public login() {
-    this.authenticationService.authenticate(this.lf.username, this.lf.password)
-      .subscribe(
-        data => {
-          this.router.navigateByUrl('/main');
-        },
-        error => this.clientMessage.message = `We got an error : ${error}`,
-      )
+  public login(userForm: NgForm) {
+    if (userForm.valid)
+    {
+      this.authenticationService.authenticate(userForm.value.user, userForm.value.password)
+        .subscribe(
+          data => {
+            this.router.navigateByUrl('/main');
+          },
+          error => {
+            this.clientMessage.message = `We got an error : ${error}`; this.alertStatus = true;}
+
+        )
+    }
   }
 }
