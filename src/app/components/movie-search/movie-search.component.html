@@ -1,17 +1,12 @@
-<div id="search-component">
-  <label for="search-box">Movie Search</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-
-  <ul class="search-result">
-    <li *ngFor="let movie of movies$ | async">
-      <p>
-        {{movie.title}}
-      </p>
-    </li>
-  </ul>
+<div id="search-component" class="h-100">
+  <!-- <label for="search-box">Movie Search</label> -->
+  <input #searchBox type="text" class="bg-transparent h-100 border-0 form-control text-start" placeholder="Search" aria-label="Search"
+    aria-describedby="basic-addon1" (input)="search(searchBox.value)">
 </div>
-
-<form>
+  <ng-container *ngFor="let movie of movies$ | async">
+    <a routerLink="/movie-detail/{{movie.id}}" type="button" class="list-group-item list-group-item-action">{{movie.title}}</a>
+  </ng-container>
+<!-- <form>
   <input type="text" #movie id="movie">
   <button (click)="searchApi(movie.value)">find movie</button>
-</form>
+</form> -->
