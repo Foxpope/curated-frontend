@@ -27,10 +27,12 @@ export class MovieService {
   }
 
   public addMovie(movie: Movie): void {
+    console.log(movie);
     this.http.post<Movie>(`${url}/add`, movie, this.httpOptions)
       .pipe(
         catchError(this.handleError)
       )
+      .subscribe()
   }
 
   public findByMovieId(id: string): Observable<Movie> {
@@ -50,8 +52,8 @@ export class MovieService {
     )
   }
 
-  public searchMoviesByApi(movie: string): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`http://www.omdbapi.com/?s=${movie}&apikey=81dd7f9d`)
+    public searchMoviesByApiSpecific(movie: string): Observable<any> {
+    return this.http.get<any>(`http://www.omdbapi.com/?t=${movie}&apikey=81dd7f9d`)
       .pipe(
         catchError(this.handleError)
       )
