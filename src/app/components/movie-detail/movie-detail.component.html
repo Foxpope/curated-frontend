@@ -43,77 +43,17 @@
                 [max]="5"
                 [readonly]="false"
               ></rating>
-              <!-- <input
-                class="star-rating__input"
-                id="star-rating-5"
-                type="radio"
-                name="rating"
-                value="5"
-              />
-              <label
-                class="star-rating__ico fa fa-star-o fa-lg"
-                for="star-rating-5"
-                title="5 out of 5 stars"
-              ></label>
-              <input
-                class="star-rating__input"
-                id="star-rating-4"
-                type="radio"
-                name="rating"
-                value="4"
-              />
-              <label
-                class="star-rating__ico fa fa-star-o fa-lg"
-                for="star-rating-4"
-                title="4 out of 5 stars"
-              ></label>
-              <input
-                class="star-rating__input"
-                id="star-rating-3"
-                type="radio"
-                name="rating"
-                value="3"
-              />
-              <label
-                class="star-rating__ico fa fa-star-o fa-lg"
-                for="star-rating-3"
-                title="3 out of 5 stars"
-              ></label>
-              <input
-                class="star-rating__input"
-                id="star-rating-2"
-                type="radio"
-                name="rating"
-                value="2"
-              />
-              <label
-                class="star-rating__ico fa fa-star-o fa-lg"
-                for="star-rating-2"
-                title="2 out of 5 stars"
-              ></label>
-              <input
-                class="star-rating__input"
-                id="star-rating-1"
-                type="radio"
-                name="rating"
-                value="1"
-              />
-              <label
-                class="star-rating__ico fa fa-star-o fa-lg"
-                for="star-rating-1"
-                title="1 out of 5 stars"
-              ></label> -->
             </div>
           </div>
         </div>
         <div
           class="align-items-start container d-flex justify-content-evenly mt-4"
         >
-          <h5>{{ movie.year }}</h5>
-          <h5 class="bg-secondary pe-2 ps-2 rounded shadow-sm">
+          <h4>{{ movie.year }}</h4>
+          <h4 class="bg-secondary pe-2 ps-2 rounded shadow-sm">
             {{ movie.rated }}
-          </h5>
-          <h5>{{ movie.runtime }}</h5>
+          </h4>
+          <h4>{{ movie.runtime }}</h4>
           <img
             src="https://www.metacritic.com/images/layout/mc_logo_inverted.png"
             height="30"
@@ -124,16 +64,16 @@
           <h5 class="fw-normal mb-5 me-4 ms-4 mt-4">{{ movie.plot }}</h5>
         </div>
         <div class="col-10 container d-flex gap-1 me-5 ms-5 pb-1">
-          <h6 class="col-2 text-white-50">Genre:</h6>
-          <h6>{{ movie.genre }}</h6>
+          <h4 class="col-2 text-white-50">Genre:</h4>
+          <h4>{{ movie.genre }}</h4>
         </div>
         <div class="col-10 container d-flex gap-1 me-5 ms-5 mt-1 pb-1">
-          <h6 class="col-2 text-white-50">Director:</h6>
-          <h6>{{ movie.director }}</h6>
+          <h4 class="col-2 text-white-50">Director:</h4>
+          <h4>{{ movie.director }}</h4>
         </div>
         <div class="col-10 container d-flex gap-1 me-5 ms-5 mt-1 pb-1">
-          <h6 class="col-2 text-white-50">Actors:</h6>
-          <h6>{{ movie.actors }}</h6>
+          <h4 class="col-2 text-white-50">Actors:</h4>
+          <h4>{{ movie.actors }}</h4>
         </div>
 
         <div
