@@ -1,4 +1,4 @@
-<ng-container *ngIf="!this.currentRoute.startsWith('/movies') && this.currentRoute !== '/register' && this.currentRoute !== '/login'">
+<ng-container *ngIf="this.currentRoute !== '/register' && this.currentRoute !== '/login' && this.currentRoute !== '/'">
   <nav class="bg-dark border-bottom d-flex navbar navbar-dark navbar-expand-lg h-63 z-100" style="box-shadow: 0px 2px 5px 2px #070707 !important; border-color: #373737 !important;">
       <div class="align-items-center container-fluid d-flex">
           <div class="col-4 container">
