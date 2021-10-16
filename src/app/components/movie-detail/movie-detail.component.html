@@ -58,20 +58,24 @@
             src="https://www.metacritic.com/images/layout/mc_logo_inverted.png"
             height="30"
           />
-          <h6 class="bg-success p-1 rounded">{{ movie.metacritic }}</h6>
+          <h4 class="bg-success p-1 rounded">{{ movie.metacritic }}</h4>
         </div>
         <div class="container">
-          <h5 class="fw-normal mb-5 me-4 ms-4 mt-4">{{ movie.plot }}</h5>
+          <h4 class="fw-normal mb-5 me-4 ms-4 mt-4">{{ movie.plot }}</h4>
         </div>
-        <div class="col-10 container d-flex gap-1 me-5 ms-5 pb-1">
+        <div class="col-10 container d-flex flex-wrap gap-1 me-5 ms-5 pb-1">
           <h4 class="col-2 text-white-50">Genre:</h4>
           <h4>{{ movie.genre }}</h4>
         </div>
-        <div class="col-10 container d-flex gap-1 me-5 ms-5 mt-1 pb-1">
+        <div
+          class="col-10 container d-flex flex-wrap gap-1 me-5 ms-5 mt-1 pb-1"
+        >
           <h4 class="col-2 text-white-50">Director:</h4>
           <h4>{{ movie.director }}</h4>
         </div>
-        <div class="col-10 container d-flex gap-1 me-5 ms-5 mt-1 pb-1">
+        <div
+          class="col-10 container d-flex flex-wrap gap-1 me-5 ms-5 mt-1 pb-1"
+        >
           <h4 class="col-2 text-white-50">Actors:</h4>
           <h4>{{ movie.actors }}</h4>
         </div>
@@ -81,6 +85,7 @@
             col-10
             container
             d-flex
+            flex-wrap
             gap-1
             me-5
             ms-5
@@ -89,7 +94,7 @@
             align-items-center align-text-center
           "
         >
-          <label class="mb-0" for="">recommend: </label>
+          <label class="mb-0 col-3 text-white-50" for="">recommend: </label>
           <input type="checkbox" [(ngModel)]="userReviewObject.recommended" />
         </div>
 
