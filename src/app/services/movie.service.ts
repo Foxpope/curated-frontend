@@ -19,6 +19,20 @@ export class MovieService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
+  public findAllMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(url)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  public addMovie(movie: Movie): void {
+    this.http.post<Movie>(`${url}/add`, movie, this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   public findByMovieId(id: string): Observable<Movie> {
     return this.http.get<Movie>(`${url}/${id}`)
       .pipe(
@@ -35,6 +49,14 @@ export class MovieService {
       catchError(this.handleError)
     )
   }
+
+  public searchMoviesByApi(movie: string): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`http://www.omdbapi.com/?s=${movie}&apikey=81dd7f9d`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
 
   private handleError(httpError: HttpErrorResponse) {
     if (httpError instanceof ErrorEvent) {
