@@ -1,10 +1,6 @@
 <!-- <app-nav></app-nav> -->
-<div
-  class="container-fluid"
-  style="background: radial-gradient(transparent, #000000), #320b39"
->
-  <div
-    class="
+<div class="container-fluid" style="background: radial-gradient(transparent, #000000), #320b39">
+  <div class="
       col-12
       container-fluid
       d-flex
@@ -13,52 +9,33 @@
       text-light
       mh-100
       min-vh-100
-    "
-    id="override"
-  >
-    <div
-      class="border-end border-start col-12 col-md-4 col-sm-12 container"
-      style="
+    " id="override">
+    <div class="border-end border-start col-12 col-md-4 col-sm-12 container" style="
         background: linear-gradient(#0c0c0c, #221327, #000000) !important;
         border-image: linear-gradient(#3e3e3e, #222222) 1;
-      "
-    >
-      <img
-        [src]="movie.poster"
-        alt="Card image cap"
-        class="card-img-top image-fit image-fit-center-top mb-3 mt-3 rounded"
-      />
+      ">
+      <img [src]="movie.poster" alt="Card image cap"
+        class="card-img-top image-fit image-fit-center-top mb-3 mt-3 rounded" />
     </div>
     <div class="col-12 col-md-8 col-sm-12 container">
       <div class="container p-2">
-        <div
-          class="align-items-center border-bottom col-11 container d-flex gx-5"
-        >
+        <div class="align-items-center border-bottom col-11 container d-flex gx-5">
           <h3 class="p-2 text-start">{{ movie.title }}</h3>
           <div class="col-auto container d-flex justify-content-center">
             <div class="star-rating__wrap">
-              <rating
-                style="color: #c7e710; font-size: 20px"
-                [(ngModel)]="userReviewObject.rating"
-                [max]="5"
-                [readonly]="false"
-              ></rating>
+              <rating style="color: #d9e710; font-size: 20px" [(ngModel)]="userReviewObject.rating" [max]="5"
+                [readonly]="false"></rating>
             </div>
           </div>
         </div>
-        <div
-          class="align-items-start container d-flex justify-content-evenly mt-4"
-        >
+        <div class="align-items-start container d-flex justify-content-evenly mt-4">
           <h4>{{ movie.year }}</h4>
           <h4 class="bg-secondary pe-2 ps-2 rounded shadow-sm">
             {{ movie.rated }}
           </h4>
           <h4>{{ movie.runtime }}</h4>
-          <img
-            src="https://www.metacritic.com/images/layout/mc_logo_inverted.png"
-            height="30"
-          />
-          <h4 class="bg-success p-1 rounded">{{ movie.metacritic }}</h4>
+          <img src="https://www.metacritic.com/images/layout/mc_logo_inverted.png" height="30" />
+          <h6 class="bg-success p-1 rounded">{{ movie.metacritic }}</h6>
         </div>
         <div class="container">
           <h4 class="fw-normal mb-5 me-4 ms-4 mt-4">{{ movie.plot }}</h4>
@@ -80,8 +57,7 @@
           <h4>{{ movie.actors }}</h4>
         </div>
 
-        <div
-          class="
+        <div class="
             col-10
             container
             d-flex
@@ -92,54 +68,42 @@
             mt-1
             pb-1
             align-items-center align-text-center
-          "
-        >
-          <label class="mb-0 col-3 text-white-50" for="">recommend: </label>
-          <input type="checkbox" [(ngModel)]="userReviewObject.recommended" />
-        </div>
+          ">
+          <div class="col-11 container">
+            <div class="mb-3 mt-1">
+              <label for="formInput26" class="form-label fw-bold text-light">Comments</label>
 
-        <div class="col-11 container mt-3">
-          <div class="mb-3 mt-3">
-            <label for="formInput26" class="form-label fw-bold text-light"
-              >Comments</label
-            >
-
-            <textarea
-              class="
+              <textarea class="
                 bg-dark bg-gradient
                 border-secondary
                 form-control
                 rounded
                 text-light
-              "
-              id="formInput26"
-              rows="3"
-              name="Review"
-              style="box-shadow: inset 0px 0px 80px 0px #000000"
-              [(ngModel)]="userReviewObject.review"
-            ></textarea>
+              " id="formInput26" rows="3" name="Review" style="box-shadow: inset 0px 0px 80px 0px #000000"
+                [(ngModel)]="userReviewObject.review"></textarea>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="recommend" class="float-start fw-bold me-3">Recommend</label>
+              <input type="checkbox" [(ngModel)]="userReviewObject.recommended" style="height: 25px; width: 25px;"
+                id="recommend" />
+              <button type="button" class="
+                bg-gradient
+                btn btn-primary
+                float-end
+                fw-bold
+                pe-4
+                ps-4
+                shadow-sm
+                text-light
+              " (click)="insertReview()">
+                Save
+              </button>
+            </div>
           </div>
-          <button
-            type="button"
-            class="
-              bg-gradient
-              btn btn-primary
-              float-end
-              fw-bold
-              pe-4
-              ps-4
-              shadow-sm
-              text-light
-            "
-            (click)="insertReview()"
-          >
-            Save
-          </button>
         </div>
       </div>
-    </div>
 
-    <hr />
-    <app-reviews [reviews]="movie.reviews"></app-reviews>
+      <hr />
+      <app-reviews [reviews]="movie.reviews"></app-reviews>
+    </div>
   </div>
-</div>
