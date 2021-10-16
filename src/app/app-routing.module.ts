@@ -6,6 +6,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MainComponent } from './components/main/main.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 
 const routes: Routes = [
   {path:'movie-detail',component:MovieDetailComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'users', component:UsersComponent},
   {path:'main', component:MainComponent}, //if logged in...
+  {path: 'user-homepage', component:UserHomepageComponent}, 
   {path:'',component:WelcomeComponent},
 ];
 

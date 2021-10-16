@@ -19,6 +19,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { FormsModule } from '@angular/forms';
+import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     RegistrationComponent,
     WelcomeComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    UserHomepageComponent
   ],
   imports: [
     BrowserModule,
