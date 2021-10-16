@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div *ngIf="alertStatus" class="alert alert-danger alert-dismissible fixed-top position-absolute">
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>                 
+  <div *ngIf="alertStatus" class="alert alert-danger alert-dismissible fixed-top position-absolute fade show">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="alertReset()"></button>                 
     The username or password was incorrect.            
 </div>
   <div class="background-cover row" id="loginbackground">

@@ -1,4 +1,8 @@
 <div class="container-fluid">
+    <div *ngIf="alertStatus" class="alert alert-danger alert-dismissible fixed-top position-absolute fade show">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="alertReset()"></button>                 
+        Oops... Something went wrong! Try again.            
+    </div>
     <div class="background-cover row" id="registrationbackground">
         <div class="bg-dark bg-gradient col-12 col-lg-4 col-md-6 col-sm-8 container-sm rounded mb-5 mt-5 shadow-lg">
             <div class="align-content-center container flex-wrap justify-content-center mb-5 mt-5 p-5">
