@@ -4,6 +4,8 @@ import { ClientMessage } from 'src/app/models/client-messages';
 import { MovieService } from 'src/app/services/movie.service';
 import { ReviewService } from 'src/app/services/review.service';
 import { Movie } from 'src/app/models/movie';
+import { Review } from 'src/app/models/review';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-movie-detail',
@@ -14,11 +16,18 @@ export class MovieDetailComponent implements OnInit {
 
   title="Movie Details"
   movie = new Movie('', '', 0, '', '', '', '', '', '', '', '', '', []);
+  userReviewObject = new Review(0, 0, false, '', this.movie, new User(0, '', '', '', '', '', [], [], []));
   current_username = sessionStorage.getItem("username");
-  userReview: string = '';
-  userRating: number = 0;
-  isReviewed: boolean = false;
+  // userReview: string = '';
+  // userRating: number = 0;
+  // isReviewed: boolean = false;
 
+  // this.id = id;
+  // this.rating = rating;
+  // this.recommended = recommended;
+  // this.review = review;
+  // this.movie = movie;
+  // this.user = user;
   public clientMessage: ClientMessage = new ClientMessage('Sorry no movie to display');
 
   constructor(private movieService: MovieService, 
@@ -31,15 +40,15 @@ export class MovieDetailComponent implements OnInit {
     console.log(this.movie);
   }
 
-  getUserReview(): [string, number, boolean] {
+  setUserReview(): void {
     console.log(this.movie.reviews);
     for (const review of this.movie.reviews) {
       if (review.user.username === this.current_username) {
-        console.log(review);
-        return [review.review, review.rating, true];
+        this.userReviewObject = review;
+        this.userReviewObject.movie = this.movie;
+        console.log(this.userReviewObject);
       }
     }
-    return ['', 0, false];
   }
 
   getMovie(): void {
@@ -59,16 +68,38 @@ export class MovieDetailComponent implements OnInit {
         this.movie.runtime = data.runtime;
         this.movie.actors = data.actors;
         this.movie.reviews = data.reviews;
-        [this.userReview, this.userRating, this.isReviewed] = this.getUserReview();
+        this.setUserReview();
       });
   }
 
   insertReview() {
-    
-    console.log("Review: " + this.userReview);
-    console.log("Rating: " + this.userRating);
-    console.log("Has been reviewed before: " +  this.isReviewed);
 
+
+    if (this.userReviewObject.id === 0) {
+      console.log("adding review");
+      this.reviewService.addReview(this.userReviewObject)
+      .subscribe(data => {
+        this.userReviewObject.id = data.id;
+        this.userReviewObject.rating = data.rating;
+        this.userReviewObject.recommended = data.recommended;
+        this.userReviewObject.review = data.review;
+        this.userReviewObject.movie = data.movie;
+        this.userReviewObject.user = data.user;
+      })
+    } else {
+      console.log("updating review");
+      this.reviewService.updateReview(this.userReviewObject)
+      .subscribe(data => {
+        this.userReviewObject.id = data.id;
+        this.userReviewObject.rating = data.rating;
+        this.userReviewObject.recommended = data.recommended;
+        this.userReviewObject.review = data.review;
+        this.userReviewObject.movie = data.movie;
+        this.userReviewObject.user = data.user;
+      });
+    }
+
+    // this.reviewService.addReview()
   }
   
 }
