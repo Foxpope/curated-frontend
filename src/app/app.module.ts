@@ -20,6 +20,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { FormsModule } from '@angular/forms';
+import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { MatSelectModule } from '@angular/material/select'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WelcomeComponent,
     LoginComponent,
     MainComponent,
+    UserHomepageComponent,
     UserSearchComponent
   ],
   imports: [
