@@ -1,1 +1,22 @@
-<p>reviews works!</p>
+<div class="mt-5 underline">
+  <h3><u>Reviews:</u></h3>
+  <div class="list-group">
+    <div class="my-3" *ngFor="let review of reviews">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ review.review }}</h5>
+        <small class="ml-3">
+          <rating
+            style="color: #c7e710; font-size: 20px"
+            [(ngModel)]="review.rating"
+            [max]="5"
+            [readonly]="true"
+          ></rating>
+        </small>
+      </div>
+      <p *ngIf="review.recommended === true">&#9757;</p>
+      <p *ngIf="review.recommended === false">&#9759;</p>
+      <p class="mb-1">{{ review.user.username }}</p>
+      <hr />
+    </div>
+  </div>
+</div>
