@@ -10,6 +10,7 @@ export class NavComponent{
 
   selected = 'movies'
   currentRoute: String;
+  currentUsername = sessionStorage.getItem("username");
 
   constructor(private router: Router) {
     this.currentRoute = "";

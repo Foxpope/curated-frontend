@@ -86,10 +86,14 @@
             aria-labelledby="dropdown1"
           >
             <li>
-              <a class="dropdown-item" href="#">Account Settings</a>
+              <a class="dropdown-item" href="/user-edit">Account Settings</a>
             </li>
             <li>
-              <a class="dropdown-item" href="/user-edit">Profile</a>
+              <a
+                class="dropdown-item"
+                href="/user-homepage?username={{ currentUsername }}"
+                >Profile</a
+              >
             </li>
             <li>
               <a class="dropdown-item" (click)="logout()" href="#">Log Out</a>
