@@ -9,3 +9,7 @@
 .z-100 {
   z-index: 100;
 }
+
+app-movie-search, app-user-search {
+  width: 75%;
+}
