@@ -20,9 +20,9 @@ export class FollowingListComponent implements OnInit {
 
   //follow ID will be used when unfollow is clicked
   followObject: Follow = new Follow(0, this.currentUser, new User(0, '', '', '', '', '', [], [], []), new Date());
-  
 
-  constructor(private followService: FollowService, private userService: UserService) { 
+
+  constructor(private followService: FollowService, private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -49,11 +49,6 @@ export class FollowingListComponent implements OnInit {
       )
   }
 
-  ngOnChanges() {
-    
-    console.log(this.followingList);
-  }
-
   isFollowing(userId: number): boolean {
     for (const followObject of this.currentUser.following) {
       if (followObject.following.id === userId) {
@@ -66,7 +61,6 @@ export class FollowingListComponent implements OnInit {
 
 
   public followUser(userToFollowId: number): void {
-    console.log(userToFollowId);
     if (this.isFollowing(userToFollowId)) {
       this.followService.removeFollow(this.followObject.followId)
       .subscribe(data => {
@@ -75,9 +69,8 @@ export class FollowingListComponent implements OnInit {
           this.currentUser.following, this.followObject.followId);
       });
     } else {
-      console.log("follow")
       this.followService.addFollow(
-        this.currentUser, 
+        this.currentUser,
         new User(userToFollowId, '', '', '', '', '', [], [], []))
         .subscribe(data => this.currentUser.following.push(data))
     }

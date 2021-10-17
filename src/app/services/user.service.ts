@@ -51,7 +51,6 @@ export class UserService {
   }
 
   searchUsers(term: string): Observable<User[]> {
-    console.log(term);
     if (!term.trim()) {
       return of([])
     }

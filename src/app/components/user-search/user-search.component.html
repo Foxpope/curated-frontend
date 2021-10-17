@@ -1,5 +1,4 @@
 <div id="search-component" class="h-100">
-  <!-- <label for="search-box">Movie Search</label> -->
   <input
     #searchBox
     type="text"
@@ -10,12 +9,14 @@
     (input)="search(searchBox.value)"
   />
 </div>
-<ng-container *ngFor="let user of users$ | async">
-  <a
-    class="list-group-item list-group-item-action"
-    [routerLink]="['/user-homepage']"
-    [queryParams]="{ username: user.username }"
-    >{{ user.username }}</a
-  >
+<ng-container *ngIf="searchBox.value !== ''">
+  <ng-container *ngFor="let user of users$ | async">
+    <a
+      class="list-group-item list-group-item-action"
+      [routerLink]="['/user-homepage']"
+      [queryParams]="{ username: user.username }"
+      (click)="searchBox.value=''"
+      >{{ user.username }}</a
+    >
+  </ng-container>
 </ng-container>
-=

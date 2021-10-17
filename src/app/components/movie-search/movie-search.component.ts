@@ -29,38 +29,6 @@ export class MovieSearchComponent implements OnInit {
     )
   }
 
-  public searchApi(movie: string) {
-
-    this.movieService.searchMoviesByApiSpecific(movie)
-      .subscribe(
-        // data => data.forEach(movie => this.movieService.addMovie(movie)),
-        data => {
-          console.log(data)
-          this.movie.id = data.imdbID;
-          this.movie.title = data.Title;
-          this.movie.year = data.Year;
-          this.movie.rated = data.Rated;
-          this.movie.released = data.Released;
-          this.movie.director = data.Director;
-          this.movie.plot = data.Plot;
-          this.movie.poster = data.Poster;
-          this.movie.genre = data.Genre;
-          this.movie.metacritic = data.Metascore;
-          this.movie.runtime = data.Runtime;
-          this.movie.actors = data.Actors;
-          this.movie.reviews = [];
-          this.movieService.addMovie(this.movie);
-        },
-        error => console.error(error)
-      )
-    // this.movieArray.forEach(movie => this.movieService.addMovie(movie))
-    this.movieService.findAllMovies()
-      .subscribe(
-        data => console.log(data),
-        error => console.error(error)
-      )
-  }
-
   public movieSelect(id: number): void {
     this.router.navigateByUrl('movie-detail')
   }

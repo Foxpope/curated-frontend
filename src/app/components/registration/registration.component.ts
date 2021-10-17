@@ -19,15 +19,14 @@ export class RegistrationComponent{
 
   public registerUser(registerForm:NgForm): void {
     let user = new User(0, registerForm.value.user, registerForm.value.email, registerForm.value.password, registerForm.value.firstName, registerForm.value.lastName, [], [], []);
-    console.log(user);
     this.userService.registerUser(user)
       .subscribe(
         data => {
-          this.clientMessage.message = `successfully added ${data.firstName}`; 
+          this.clientMessage.message = `successfully added ${data.firstName}`;
           this.router.navigateByUrl('/login');
         },
         error => {
-          this.clientMessage.message = `We got an error : ${error}`; 
+          this.clientMessage.message = `We got an error : ${error}`;
           this.alertStatus = true;
         }
       )

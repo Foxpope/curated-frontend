@@ -28,8 +28,6 @@ export class MainComponent implements OnInit {
     this.movieService.getRandomMovies()
       .subscribe(data => {
         this.movies = data;
-        console.log(this.movies)
-        console.log(data)
       })
   }
 }
