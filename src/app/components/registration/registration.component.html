@@ -7,40 +7,38 @@
         <div class="bg-dark bg-gradient col-12 col-lg-4 col-md-6 col-sm-8 container-sm rounded mb-5 mt-5 shadow-lg">
             <div class="align-content-center container flex-wrap justify-content-center mb-5 mt-5 p-5">
                 <h3 class="fs-3 fw-light mb-4 text-center text-light text-uppercase">Create your Account</h3>
-                <form role="form" class="text-light" ngNativeValidate>
+                <form #registerForm="ngForm" class="text-light" (ngSubmit)="registerUser(registerForm)" ngNativeValidate>
                     <div class="mb-3">
                         <label for="username-input" class="lead text-white-50">Username</label>
-                        <input [(ngModel)]="user.username" name="username" type="text" class="bg-gradient bg-light form-control shadow-sm" id="username-input"
-                            required>
+                        <input name="user" type="text" class="bg-gradient bg-light form-control shadow-sm" id="username-input"
+                            ngModel required>
                     </div>
                     <div class="mb-3">
                         <label for="email-input" class="lead text-white-50">Email Address</label>
-                        <input [(ngModel)]="user.email" name="email" type="email" class="bg-gradient bg-light form-control shadow-sm" id="email-input"
-                            required>
+                        <input name="email" type="email" class="bg-gradient bg-light form-control shadow-sm" id="email-input"
+                            ngModel required>
                     </div>
                     <div class="mb-3">
                       <label for="firstname-input" class="lead text-white-50">First Name</label>
-                      <input [(ngModel)]="user.firstName" name="firstName" type="text" class="bg-gradient bg-light form-control shadow-sm"
-                        id="firstname-input" required>
+                      <input name="firstName" type="text" class="bg-gradient bg-light form-control shadow-sm"
+                        id="firstname-input" ngModel required>
                     </div>
                     <div class="mb-3">
                       <label for="lastname-input" class="lead text-white-50">Last Name</label>
-                      <input [(ngModel)]="user.lastName" name="lastName" type="text" class="bg-gradient bg-light form-control shadow-sm"
-                        id="lastname-input" required>
+                      <input name="lastName" type="text" class="bg-gradient bg-light form-control shadow-sm"
+                        id="lastname-input" ngModel required>
                     </div>
                     <div class="mb-3">
                       <label for="password-input" class="lead text-white-50">Password</label>
-                      <input [(ngModel)]="user.password" name="password" type="password" class="bg-gradient bg-light form-control shadow-sm"
-                        id="password-input" required>
+                      <input name="password" type="password" class="bg-gradient bg-light form-control shadow-sm"
+                        id="password-input" ngModel required>
                     </div>
                     <div class="mb-3">
                         <label for="confirm-password" class="lead text-white-50">Confirm Password</label>
                         <input type="password" class="bg-gradient bg-light form-control mb-5 shadow-sm"
                             id="confirm-password" required>
                     </div>
-                    <button type="submit"
-                        class="bg-gradient btn btn-lg btn-primary pe-5 ps-5 shadow text-light w-100"
-                        (click)="registerUser()">Sign Up</button>
+                    <button type="submit" class="bg-gradient btn btn-lg btn-primary pe-5 ps-5 shadow text-light w-100">Sign Up</button>
                 </form>
             </div>
         </div>

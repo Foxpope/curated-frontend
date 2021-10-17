@@ -3,6 +3,7 @@ import { ClientMessage } from './../../models/client-messages';
 import { User } from './../../models/user';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -12,18 +13,24 @@ import { Router } from '@angular/router';
 export class RegistrationComponent{
 
   alertStatus:Boolean = false;
-  public user = new User(0, '', '', '', '', '', [], [], [])
   public clientMessage = new ClientMessage('')
 
   constructor(private userService: UserService, private router: Router) { }
 
-  public registerUser(): void {
-    this.userService.registerUser(this.user)
+  public registerUser(registerForm:NgForm): void {
+    let user = new User(0, registerForm.value.user, registerForm.value.email, registerForm.value.password, registerForm.value.firstName, registerForm.value.lastName, [], [], []);
+    console.log(user);
+    this.userService.registerUser(user)
       .subscribe(
-        data => this.clientMessage.message = `succefully added ${data.firstName}`,
-        error => {this.clientMessage.message = `We got an error : ${error}`; this.alertStatus = true;}
+        data => {
+          this.clientMessage.message = `successfully added ${data.firstName}`; 
+          this.router.navigateByUrl('/login');
+        },
+        error => {
+          this.clientMessage.message = `We got an error : ${error}`; 
+          this.alertStatus = true;
+        }
       )
-      this.router.navigateByUrl('/login');
   }
   public alertReset()
   {
