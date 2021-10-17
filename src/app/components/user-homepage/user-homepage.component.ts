@@ -42,6 +42,8 @@ export class UserHomepageComponent implements OnInit {
 
   public populateReviews(): void {
 
+    document.getElementById('reviews_btn')?.style
+
     let header = document.createElement('h4')
     header.id = 'list-header'
     let header_placeholder = document.createTextNode(this.username + '\'s Reviews')
@@ -61,6 +63,9 @@ export class UserHomepageComponent implements OnInit {
   }
 
   public populateFollowing(): void {
+
+    this.updateNames()
+
     let header = document.createElement('h4')
     header.id = 'list-header'
     let header_placeholder = document.createTextNode('Who is ' + this.user.username + ' Following?')
@@ -80,6 +85,9 @@ export class UserHomepageComponent implements OnInit {
   }
 
   public populateFollowers(): void {
+
+    this.updateNames()
+
     let header = document.createElement('h4')
     header.id = 'list-header'
     let header_placeholder = document.createTextNode(this.user.username + '\'s Followers')

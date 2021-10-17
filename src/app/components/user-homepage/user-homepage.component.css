@@ -57,6 +57,11 @@ a:focus,
     border:none;
   }
 
+  .username_card {
+    margin:auto;
+    vertical-align:middle;
+  }
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -70,7 +75,7 @@ a:focus,
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
+    background: rgba(46, 0, 82, 0.78);
     color: #fff;
     transition: all 0.3s;
 }
@@ -81,7 +86,7 @@ a:focus,
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: rgba(46, 0, 82, 0.78);
 }
 
 #sidebar ul.components {
@@ -103,7 +108,7 @@ a:focus,
 
 #sidebar ul li a:hover,
 #sidebar ul li .navbtn:hover {
-    color: #7386D5;
+    color: rgba(46, 0, 82, 0.78);
     background: #fff;
 }
 
@@ -111,7 +116,7 @@ a:focus,
 a[aria-expanded="true"],
 .navbtn {
     color: #fff;
-    background: #6d7fcc;
+    background: rgb(212, 185, 255);
 }
 
 a[data-toggle="collapse"],
