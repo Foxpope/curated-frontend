@@ -8,7 +8,7 @@ import { Movie } from '../models/movie';
 import { User } from '../models/user';
 import { Follow } from '../models/follow';
 
-const url = localUrl + '/follows';
+const url = awsUrl + '/follows';
 
 @Injectable({
   providedIn: 'root'

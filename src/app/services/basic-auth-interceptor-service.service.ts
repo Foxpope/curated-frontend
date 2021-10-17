@@ -1,9 +1,10 @@
 import { localUrl } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { awsUrl } from 'src/environments/environment.prod';
 
 
-const url = localUrl;
+const url = awsUrl;
 
 @Injectable({
   providedIn: 'root'

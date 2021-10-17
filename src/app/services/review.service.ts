@@ -7,7 +7,7 @@ import { Review } from '../models/review';
 import { Movie } from '../models/movie';
 import { User } from '../models/user';
 
-const url = localUrl + '/reviews';
+const url = awsUrl + '/reviews';
 
 @Injectable({
   providedIn: 'root'

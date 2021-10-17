@@ -6,7 +6,7 @@ import { awsUrl, localUrl } from 'src/environments/environment';
 import { catchError, map } from "rxjs/operators";
 import { of } from 'rxjs';
 
-const url = localUrl + "/movies";
+const url = awsUrl + "/movies";
 
 @Injectable({
   providedIn: 'root'
