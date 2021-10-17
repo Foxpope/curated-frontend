@@ -4,7 +4,6 @@ import { MovieSearchComponent } from './components/movie-search/movie-search.com
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { UsersComponent } from './components/users/users.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MainComponent } from './components/main/main.component';
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path:'registration', component:RegistrationComponent},
   {path:'login', component:LoginComponent},
-  { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
   { path: 'movie-search', component: MovieSearchComponent, canActivate: [AuthGuard]},
   { path: 'main', component: MainComponent, canActivate: [AuthGuard]}, //if logged in...
   { path: 'user-homepage', component: UserHomepageComponent, canActivate: [AuthGuard]},

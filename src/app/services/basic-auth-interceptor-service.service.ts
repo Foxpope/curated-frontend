@@ -13,7 +13,6 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log(req);
     if(req.url.startsWith(localUrl)){
       const jwt = sessionStorage.getItem('token');
       if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {

@@ -1,4 +1,3 @@
-import { UsersComponent } from './../users/users.component';
 import { ClientMessage } from 'src/app/models/client-messages';
 import { AuthenticationService } from './../../services/authentication-service.service';
 import { LoginForm } from './../../models/login-form';
@@ -28,45 +27,14 @@ export class UserEditComponent implements OnInit {
 
   public update(userEditForm: NgForm) {
     if (userEditForm.valid) {
-      console.log(userEditForm.value)
       this.userService.updateUser(this.currentUser)
         .subscribe(
-          user => {
-            // this.currentUser.id = user.id;
-            // this.currentUser.email = user.email;
-            // this.currentUser.firstName = user.firstName;
-            // this.currentUser.lastName = user.lastName;
-            // this.currentUser.password = user.password;
-            // this.currentUser.username = user.username;
-            // this.currentUser.following = user.following;
-            // this.currentUser.followers = user.followers
-            // this.currentUser.reviews = user.reviews;
-            // sessionStorage.setItem('username', user.username);
-            // sessionStorage.setItem('firstName', user.firstName);
-            console.log(this.currentUser)
-          }
+          user => {}
         )
-      // this.authenticationService.authenticate(userEditForm.value.user, userEditForm.value.password)
-      //   .subscribe(
-      //     data => {
-      //       this.userService.findByUsername(userEditForm.value.username)
-      //         .subscribe(
-      //           user => {
-      //             sessionStorage.setItem('firstName', user.firstName);
-      //             // this.router.navigateByUrl('/user-edit');
-      //           },
-      //           error => this.clientMessage.message = `We got an error : ${error}`
-      //         )
-      //     },
-      //     error => {
-      //       this.clientMessage.message = `We got an error : ${error}`; this.alertStatus = true;
-      //     }
-
-      //   )
     }
   }
 
-  
+
   public getUser(): void {
     const temp = sessionStorage.getItem('username');
     let username = temp ? JSON.stringify(temp) : "";
@@ -83,7 +51,6 @@ export class UserEditComponent implements OnInit {
           this.currentUser.following = user.following;
           this.currentUser.followers = user.followers
           this.currentUser.reviews = user.reviews;
-          console.log(this.currentUser)
         }
       )
   }

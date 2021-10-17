@@ -23,22 +23,19 @@ export class UserHomepageComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.updateNames()
-    this.populateReviews()
+    this.route.queryParams
+      .subscribe(params => {
+        this.username = params.username;
+        this.updateNames();
+        this.populateReviews();
+      }
+    )
   }
 
   public updateNames(): void {
 
-    this.route.queryParams
-      .subscribe(params => {
-        this.username = params.username;
-      }
-    );
-
     this.userService.findByUsername(this.username).subscribe(data => {
-      console.log(data)
       this.user = data
-      console.log(this.user.id + " *** " + this.currentUserId)
     })
 
   }
