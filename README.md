@@ -1,5 +1,34 @@
-# CuratedFrontend
+# Curated-Frontend
 
+## Project Description
+
+A front-end for users to partake in rating movies and following their favorite curators.
+
+## Technologies Used
+
+* Angular - version 12 
+* Bootstrap - verstion 4 
+
+
+## Features
+
+List of features ready  
+* Login  
+* Registration
+* Movie Search
+* Curator Search
+* Submitting Reviews
+* Updating Reviews 
+* Following/unfollowing other curators
+* Authentication
+
+## Cloning Repo
+```shell
+  git clone https://github.com/Foxpope/curated-frontend.git
+  cd curated-frontend
+  npm install
+```
+=========================================================
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
 ## Development server
