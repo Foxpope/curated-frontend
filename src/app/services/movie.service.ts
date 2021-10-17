@@ -26,13 +26,11 @@ export class MovieService {
       )
   }
 
-  public addMovie(movie: Movie): void {
-    console.log(movie);
-    this.http.post<Movie>(`${url}/add`, movie, this.httpOptions)
+  public addMovie(movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(`${url}/add`, movie, this.httpOptions)
       .pipe(
         catchError(this.handleError)
       )
-      .subscribe()
   }
 
   public findByMovieId(id: string): Observable<Movie> {
@@ -52,15 +50,15 @@ export class MovieService {
     )
   }
 
-  public searchMoviesByApiSpecific(movie: string): Observable<any> {
-    return this.http.get<any>(`http://www.omdbapi.com/?t=${movie}&apikey=81dd7f9d`)
+  public searchMoviesByApiSpecific(id: string): Observable<any> {
+    return this.http.get<any>(`http://www.omdbapi.com/?i=${id}&apikey=81dd7f9d`)
       .pipe(
         catchError(this.handleError)
       )
   }
 
-  public searchMoviesByApiGeneric(movie: string): Observable<any[]> {
-    return this.http.get<any[]>(`http://www.omdbapi.com/?s=${movie}&apikey=81dd7f9d`)
+  public searchMoviesByApiGeneric(movie: string, page: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://www.omdbapi.com/?s=${movie}&page=${page}&apikey=81dd7f9d`)
       .pipe(
         catchError(this.handleError)
       )

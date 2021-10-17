@@ -10,35 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  public u = new User(0, '', '', '', '', '', [], [], [])
-  public clientMessage = new ClientMessage('')
+  // public u = new User(0, '', '', '', '', '', [], [], [])
+  // public clientMessage = new ClientMessage('')
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.getUser();
+    // this.getUser();
   }
 
-  public getUser(): void {
-    const temp = sessionStorage.getItem('username');
-    let username = temp ? JSON.stringify(temp) : "";
-    username = username.substring(1, username.length - 1);
-    this.userService.findByUsername(username)
-      .subscribe(
-        user => {
-          this.u.id = user.id;
-          this.u.email = user.email;
-          this.u.firstName = user.firstName;
-          this.u.lastName = user.lastName;
-          this.u.password = user.password;
-          this.u.username = user.username;
-          this.u.following = user.following;
-          this.u.followers = user.followers
-          this.u.reviews = user.reviews;
-          sessionStorage.setItem('userId', JSON.stringify(user.id));
-          sessionStorage.setItem('firstName', user.firstName);
-        },
-        error => this.clientMessage.message = `We got an error : ${error}`
-      )
-  }
+//   public getUser(): void {
+//     const temp = sessionStorage.getItem('username');
+//     let username = temp ? JSON.stringify(temp) : "";
+//     username = username.substring(1, username.length - 1);
+//   }
 }

@@ -14,8 +14,8 @@
         background: linear-gradient(#0c0c0c, #221327, #000000) !important;
         border-image: linear-gradient(#3e3e3e, #222222) 1;
       ">
-      <img [src]="movie.poster" alt="Card image cap"
-        class="card-img-top image-fit image-fit-center-top mb-3 mt-3 rounded" />
+      <img [src]="movie.poster" alt="Movie Poster"
+        class="card-img-top image-fit mb-3 mt-3 rounded" style="position:sticky; top: 0;"/>
     </div>
     <div class="col-12 col-md-8 col-sm-12 container">
       <div class="container p-2">
@@ -23,7 +23,7 @@
           <h3 class="p-2 text-start">{{ movie.title }}</h3>
           <div class="col-auto container d-flex justify-content-center">
             <div class="star-rating__wrap">
-              <rating style="color: #d9e710; font-size: 20px" [(ngModel)]="userReviewObject.rating" [max]="5"
+              <rating style="color: #ffd000; font-size: 25px" [(ngModel)]="userReviewObject.rating" [max]="5"
                 [readonly]="false"></rating>
             </div>
           </div>
@@ -102,8 +102,6 @@
           </div>
         </div>
       </div>
-
-      <hr />
       <app-reviews [reviews]="movie.reviews"></app-reviews>
     </div>
   </div>

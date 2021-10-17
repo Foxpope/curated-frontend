@@ -9,15 +9,13 @@ import { Router, NavigationEnd, NavigationStart, NavigationError } from '@angula
 export class NavComponent{
 
   selected = 'movies'
-  firstName = sessionStorage.getItem('firstName')
-  currentRoute: string;
+  currentRoute: String;
 
   constructor(private router: Router) {
     this.currentRoute = "";
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
         // Show progress spinner or progress bar
-        console.log('Route change detected');
       }
 
       if (event instanceof NavigationEnd) {
@@ -32,5 +30,12 @@ export class NavComponent{
         console.log(event.error);
       }
     });
+  }
+  get staticFirstName()
+  {
+    return sessionStorage.getItem('firstName');
+  }
+  logout() {
+    sessionStorage.clear();
   }
 }
