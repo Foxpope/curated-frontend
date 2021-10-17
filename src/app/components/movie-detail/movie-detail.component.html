@@ -23,7 +23,7 @@
           <h3 class="p-2 text-start">{{ movie.title }}</h3>
           <div class="col-auto container d-flex justify-content-center">
             <div class="star-rating__wrap">
-              <rating style="color: #d9e710; font-size: 20px" [(ngModel)]="userReviewObject.rating" [max]="5"
+              <rating style="color: #ffd000; font-size: 25px" [(ngModel)]="userReviewObject.rating" [max]="5"
                 [readonly]="false"></rating>
             </div>
           </div>
@@ -102,8 +102,6 @@
           </div>
         </div>
       </div>
-
-      <hr />
       <app-reviews [reviews]="movie.reviews"></app-reviews>
     </div>
   </div>

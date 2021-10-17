@@ -9,7 +9,6 @@ import { Router, NavigationEnd, NavigationStart, NavigationError } from '@angula
 export class NavComponent{
 
   selected = 'movies'
-  static firstName: String;
   currentRoute: String;
 
   constructor(private router: Router) {
@@ -34,6 +33,6 @@ export class NavComponent{
   }
   get staticFirstName()
   {
-    return NavComponent.firstName;
+    return sessionStorage.getItem('firstName');
   }
 }

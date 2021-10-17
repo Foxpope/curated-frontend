@@ -27,7 +27,6 @@ export class LoginComponent {
             this.userService.findByUsername(userForm.value.user)
               .subscribe(
                 user => {
-                  NavComponent.firstName = user.firstName;
                   sessionStorage.setItem('userId', JSON.stringify(user.id));
                   sessionStorage.setItem('firstName', user.firstName);
                   this.router.navigateByUrl('/main');

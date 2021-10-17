@@ -1,41 +1,41 @@
-<div class="mt-5 underline">
-  <h3><u>Reviews:</u></h3>
+<div class="col-12 container mt-4">
+  <div class="pb-1 pt-1 mb-4 shadow"
+    style="background: linear-gradient(to left, transparent, #7f3681b0, transparent) !important;">
+    <h3 class="fw-bold text-center mt-3">Curator Reviews</h3>
+  </div>
   <div class="list-group">
-    <div class="my-3" *ngFor="let review of reviews">
-      <h3 class="mb-1" *ngIf="review.movie">
-        <a href="movie-detail/{{ review.movie.id }}"
-          ><b>{{ review.movie.title }}</b></a
-        >
-      </h3>
-      <div class="d-flex w-100 justify-content-between">
-        <h3 class="mb-1">{{ review.review }}</h3>
-        <small class="ml-3">
-          <rating
-            style="color: #c7e710; font-size: 20px"
-            [(ngModel)]="review.rating"
-            [max]="5"
-            [readonly]="true"
-          ></rating>
-        </small>
+    <div class="mt-1 ms-4 me-4" *ngFor="let review of reviews">
+      <div class="d-flex">
+        <div class="col-9">
+          <div>
+            <h2>{{(review.recommended)? "&#9757;": "&#9759;"}}</h2>
+            <h3 class="mb-1" *ngIf="review.movie">
+              <a href="movie-detail/{{ review.movie.id }}"><b>{{ review.movie.title }}</b></a>
+            </h3>
+          </div>
+          <h3 class="mb-1">{{ review.review }}</h3>
+          <p class="mb-1">
+            <a [routerLink]="['/user-homepage']" [queryParams]="{ username: review.user.username }">{{
+              review.user.username
+              }}</a>
+          </p>
+        </div>
+        <div>
+          <div style="float: right;">
+            <small >
+              <rating style="color: #ffd000; font-size: 25px" [(ngModel)]="review.rating" [max]="5" [readonly]="true">
+              </rating>
+            </small>
+          </div>
+          <div>
+            <button type="button" class="bg-gradient btn btn-primary fw-bold shadow-sm text-light mt-5"
+              *ngIf="review.user.id !== currentUserId" (click)="followUser(review.user.id)" style="width: 100px; float: right;">
+              {{ isFollowing(review.user.id) ? "Unfollow" : "Follow" }}
+            </button>
+          </div>
+        </div>
       </div>
-      <h1 *ngIf="review.recommended === true">&#9757;</h1>
-      <h1 *ngIf="review.recommended === false">&#9759;</h1>
-      <div class="d-flex d-flex-row justify-content-between">
-        <p class="mb-1">
-          <a
-            [routerLink]="['/user-homepage']"
-            [queryParams]="{ username: review.user.username }"
-            >{{ review.user.username }}</a
-          >
-        </p>
-        <button
-          *ngIf="review.user.id !== currentUserId"
-          (click)="followUser(review.user.id)"
-        >
-          <span>{{ isFollowing(review.user.id) ? "Unfollow" : "Follow" }}</span>
-        </button>
-      </div>
-      <hr />
+      <hr>
     </div>
   </div>
 </div>
