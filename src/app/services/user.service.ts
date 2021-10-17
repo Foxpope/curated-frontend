@@ -46,6 +46,10 @@ export class UserService {
       );
   }
 
+  public updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${url}/users/${user.id}`, user, this.httpOptions);
+  }
+
   searchUsers(term: string): Observable<User[]> {
     console.log(term);
     if (!term.trim()) {

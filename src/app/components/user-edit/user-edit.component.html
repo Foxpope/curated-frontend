@@ -1,0 +1,132 @@
+<div class="container-fluid">
+  <!-- <div
+    *ngIf="alertStatus"
+    class="
+      alert alert-danger alert-dismissible
+      fixed-top
+      position-absolute
+      fade
+      show
+    "
+  >
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      (click)="alertReset()"
+    ></button>
+    The username or password was incorrect.
+  </div> -->
+  <div class="background-cover row" id="loginbackground">
+    <div
+      class="
+        bg-dark bg-gradient
+        col-12 col-lg-4 col-md-6 col-sm-8
+        container-sm
+        mb-5
+        mt-5
+        rounded
+        shadow-lg
+      "
+    >
+      <div
+        class="
+          align-content-center
+          container
+          flex-wrap
+          justify-content-center
+          mb-5
+          mt-5
+          p-5
+        "
+      >
+        <h3 class="fs-3 fw-lighter mb-4 text-center text-light text-uppercase">
+          Update
+        </h3>
+        <form
+          #userEditForm="ngForm"
+          class="text-light"
+          (ngSubmit)="update(userEditForm)"
+          ngNativeValidate
+        >
+          <div class="mb-3">
+            <label for="username" class="lead text-white-50">Username</label>
+            <input
+              type="text"
+              name="username"
+              class="bg-gradient bg-light form-control shadow-sm"
+              id="username"
+              [(ngModel)]="currentUser.username"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="firstName" class="lead text-white-50">First name</label>
+            <input
+              type="text"
+              name="firstName"
+              class="bg-gradient bg-light form-control shadow-sm"
+              id="firstName"
+              [(ngModel)]="currentUser.firstName"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="lastName" class="lead text-white-50">Last name</label>
+            <input
+              type="text"
+              name="lastName"
+              class="bg-gradient bg-light form-control shadow-sm"
+              id="lastName"
+              [(ngModel)]="currentUser.lastName"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="lead text-white-50">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="bg-gradient bg-light form-control shadow-sm"
+              id="password"
+              ngModel
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="
+              bg-gradient
+              btn btn-lg btn-primary
+              mt-3
+              pe-5
+              ps-5
+              shadow
+              text-light
+              w-100
+            "
+          >
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="form-group">
+  <label for="power">Hero Power</label>
+  <select
+    class="form-control"
+    id="power"
+    required
+    [(ngModel)]="model.power"
+    name="power"
+  >
+    <option *ngFor="let pow of powers" [value]="pow">{{ pow }}</option>
+  </select>
+</div> -->

@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FollowingListComponent } from './components/following-list/following-list.component';
 import { FollowerListComponent } from './components/follower-list/follower-list.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { FollowerListComponent } from './components/follower-list/follower-list.
     UserHomepageComponent,
     UserSearchComponent,
     FollowingListComponent,
-    FollowerListComponent
+    FollowerListComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
