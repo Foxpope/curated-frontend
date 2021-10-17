@@ -1,25 +1,43 @@
-<div class="mt-5 underline">
-  <h3><u>Following:</u></h3>
-  <div class="list-group">
-    <div class="my-3 border px-3 pt-1" *ngFor="let follow of followingList">
-      <div class="d-flex w-100 justify-content-between">
-        <h4 class="mb-1">
-          <a
-            [routerLink]="['/user-homepage']"
-            [queryParams]="{ username: follow.following.username }"
-            >{{ follow.following.username }}</a
+<div class="col-12 container mt-4">
+  <div class="mt-5 underline">
+    <div
+      class="pb-1 pt-1 mb-4 shadow"
+      style="
+        background: linear-gradient(
+          to left,
+          transparent,
+          #7f3681b0,
+          transparent
+        ) !important;
+      "
+    >
+      <h3 class="fw-bold text-center mt-3">Following</h3>
+    </div>
+    <div class="list-group">
+      <div class="mt-1 ms-4 me-4" *ngFor="let follow of followingList">
+        <div>
+          <div class="d-flex w-100 justify-content-between">
+            <h2 class="mb-1">
+              <a
+                [routerLink]="['/user-homepage']"
+                [queryParams]="{ username: follow.following.username }"
+                >{{ follow.following.username }}</a
+              >
+            </h2>
+            <h4>{{ follow.followDate }}</h4>
+          </div>
+          <button
+            class="bg-gradient btn btn-primary fw-bold shadow-sm text-light"
+            *ngIf="follow.following.id !== currentUserId"
+            (click)="followUser(follow.following.id)"
           >
-        </h4>
-        <h4>{{ follow.followDate }}</h4>
+            <span>{{
+              isFollowing(follow.following.id) ? "Unfollow" : "Follow"
+            }}</span>
+          </button>
+        </div>
+        <hr />
       </div>
-      <button
-        *ngIf="follow.following.id !== currentUserId"
-        (click)="followUser(follow.following.id)"
-      >
-        <span>{{
-          isFollowing(follow.following.id) ? "Unfollow" : "Follow"
-        }}</span>
-      </button>
     </div>
   </div>
 </div>
