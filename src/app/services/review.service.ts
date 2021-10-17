@@ -25,7 +25,6 @@ export class ReviewService {
     let userId = Number(JSON.parse(sessionStorage.getItem('userId')!))
     review.movie = new Movie(review.movie.id, '', 0, '', '', '', '', '', '', '', '', '', []);
     review.user = new User(userId, '', '', '', '', '', [], [], []);
-    console.log(review)
     return this.http.post<Review>(`${url}/add`, review, this.httpOptions).pipe(catchError(this.handleError))
   }
 

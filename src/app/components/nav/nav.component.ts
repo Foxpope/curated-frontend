@@ -1,3 +1,4 @@
+import { ClientMessage } from './../../models/client-messages';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart, NavigationError } from '@angular/router';
 
@@ -11,6 +12,7 @@ export class NavComponent{
   selected = 'movies'
   currentRoute: String;
   currentUsername = sessionStorage.getItem("username");
+  public clientMessage = new ClientMessage('');
 
   constructor(private router: Router) {
     this.currentRoute = "";
@@ -28,7 +30,7 @@ export class NavComponent{
         // Hide progress spinner or progress bar
 
         // Present error to user
-        console.log(event.error);
+        this.clientMessage.message = `We got an error : ${event.error}`
       }
     });
   }

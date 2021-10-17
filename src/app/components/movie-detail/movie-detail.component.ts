@@ -31,11 +31,9 @@ export class MovieDetailComponent implements OnInit {
     this.route.params.subscribe(routeParams => {
       this.getMovie(routeParams.id);
     });
-    console.log(this.movie);
   }
 
   setUserReview(): void {
-    console.log(this.movie.reviews);
     this.userReviewObject = new Review(0, 0, false, '', this.movie, new User(0, '', '', '', '', '', [], [], []));
     for (const review of this.movie.reviews) {
       if (review.user.username === this.current_username) {
@@ -68,7 +66,6 @@ export class MovieDetailComponent implements OnInit {
   insertReview() {
     // Adding or updating?
     if (this.userReviewObject.id === 0) {
-      console.log("adding review");
       this.reviewService.addReview(this.userReviewObject)
       .subscribe(data => {
         this.userReviewObject.id = data.id;
@@ -79,7 +76,6 @@ export class MovieDetailComponent implements OnInit {
         this.userReviewObject.user = data.user;
       })
     } else {
-      console.log("updating review");
       this.reviewService.updateReview(this.userReviewObject)
       .subscribe(data => {
         this.userReviewObject.id = data.id;

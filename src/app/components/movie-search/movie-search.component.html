@@ -1,5 +1,4 @@
 <div id="search-component" class="h-100">
-  <!-- <label for="search-box">Movie Search</label> -->
   <input #searchBox type="text" class="bg-transparent h-100 border-0 form-control text-start" placeholder="Search" aria-label="Search"
     aria-describedby="basic-addon1" (input)="search(searchBox.value)">
 </div>
@@ -13,7 +12,3 @@
 <ng-container *ngIf="searchBox.value !== ''">
   <a routerLink="/movies/{{searchBox.value}}" type="button" (click)="searchBox.value=''" class="list-group-item list-group-item-action">Find More By This Search</a>
 </ng-container>
-<!-- <form>
-  <input type="text" #movie id="movie">
-  <button (click)="searchApi(movie.value)">find movie</button>
-</form> -->
