@@ -42,13 +42,9 @@ export class UserHomepageComponent implements OnInit {
 
   public populateReviews(): void {
 
-    let header = document.createElement('h4')
-    header.id = 'list-header'
-    let header_placeholder = document.createTextNode(this.username + '\'s Reviews')
-    header.appendChild(header_placeholder)
-    let dummyHeader = document.getElementById('list-header')!
-    let parent = dummyHeader?.parentNode
-    parent?.replaceChild(header, dummyHeader)
+    let dummyHeader = document.getElementById('curator-bar')!
+
+    dummyHeader.innerHTML = this.username + '\'s Reviews'
 
     let x = document.getElementById('reviewList')!
     x.style.display = "block";
@@ -61,13 +57,10 @@ export class UserHomepageComponent implements OnInit {
   }
 
   public populateFollowing(): void {
-    let header = document.createElement('h4')
-    header.id = 'list-header'
-    let header_placeholder = document.createTextNode('Who is ' + this.user.username + ' Following?')
-    header.appendChild(header_placeholder)
-    let dummyHeader = document.getElementById('list-header')!
-    let parent = dummyHeader?.parentNode
-    parent?.replaceChild(header, dummyHeader)
+
+    let dummyHeader = document.getElementById('following-bar')!
+
+    dummyHeader.innerHTML = 'Who is ' + this.user.username + ' Following?'
 
     let x = document.getElementById('reviewList')!
     x.style.display = "none";
@@ -80,13 +73,10 @@ export class UserHomepageComponent implements OnInit {
   }
 
   public populateFollowers(): void {
-    let header = document.createElement('h4')
-    header.id = 'list-header'
-    let header_placeholder = document.createTextNode(this.user.username + '\'s Followers')
-    header.appendChild(header_placeholder)
-    let dummyHeader = document.getElementById('list-header')!
-    let parent = dummyHeader?.parentNode
-    parent?.replaceChild(header, dummyHeader)
+
+    let dummyHeader = document.getElementById('follower-bar')!
+
+    dummyHeader.innerHTML = this.user.username + '\'s Followers'
 
     let x = document.getElementById('reviewList')!
     x.style.display = "none";

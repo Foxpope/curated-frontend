@@ -4,19 +4,19 @@
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>{{ user.username }}</h3>
+            <h1 class="username_card">{{ user.username }}</h1>
         </div>
 
         <ul class="list-unstyled components">
             <p>{{ user.firstName }} {{ user.lastName }}</p>
             <li>
-                <button (click)="populateReviews()" class="navbtn">Reviews</button>
+                <button (click)="populateReviews()" class="navbtn" id="review_btn">Reviews</button>
             </li>
             <li>
-                <button (click)="populateFollowing()" class="navbtn">Following</button>
+                <button (click)="populateFollowing()" class="navbtn" id="following_btn">Following</button>
             </li>
             <li>
-                <button (click)="populateFollowers()" class="navbtn">Followers</button>
+                <button (click)="populateFollowers()" class="navbtn" id="followers_btn">Followers</button>
             </li>
         </ul>
     </nav>
@@ -24,7 +24,7 @@
     <!-- Page Content  -->
     <div id="content">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
 
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -35,17 +35,16 @@
                     <i class="fas fa-align-justify"></i>
                 </button>
             </div>
-        </nav>
+        </nav> -->
 
         <div id="ul-wrapper">
             <ul id="ul-contents">
-                <h4 id="list-header">a header for the list</h4>
                 
                 <app-reviews [reviews]="user.reviews" id="reviewList"></app-reviews>
 
                 <app-following-list [followingList]="user.following" id="followingList"></app-following-list>
 
-                <li id="followerList">followers</li>
+                <app-follower-list [followersList]="user.followers" id="followerList"></app-follower-list>
                 
             </ul>
         </div>
