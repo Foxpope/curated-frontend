@@ -22,7 +22,7 @@ a:focus,
 .navbtn,
 .navbtn:hover,
 .navbtn:focus {
-    color: inherit;
+    /* color: inherit; */
     text-decoration: none;
     transition: all 0.3s;
 }
