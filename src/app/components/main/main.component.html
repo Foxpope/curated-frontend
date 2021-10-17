@@ -1,5 +1,53 @@
 <!-- <app-nav></app-nav> -->
-<div class="container-fluid">
-    <div class="background-cover row" id="mainbackground">
-    </div>
+<div
+  class="container-fluid"
+  style="background: radial-gradient(transparent, #000000), #320b39"
+>
+  <div
+    class="
+      col-12
+      container-fluid
+      d-flex
+      flex-wrap
+      justify-content-around
+      text-light
+      mh-100
+      min-vh-100
+    "
+    id="override"
+  >
+    <!-- <div class="border-end border-start col-12 col-md-4 col-sm-12 container" style="
+          background: linear-gradient(#0c0c0c, #221327, #000000) !important;
+          border-image: linear-gradient(#3e3e3e, #222222) 1;
+        "> -->
+    <ng-container *ngFor="let movie of movies">
+      <div
+        class="card text-center mr-1 mt-2"
+        style="width: 13rem; height: 17rem; border: none"
+      >
+        <a class="h-100 bg-dark" href="/movie-detail/{{ movie.id }}">
+          <img
+            class="card-img-top"
+            height="286px"
+            width="180px"
+            src="{{ movie.poster }}"
+            alt="No image :("
+          />
+          <div
+            class="card-body"
+            style="
+              background: radial-gradient(transparent, #000000), #320b39;
+              height: 104px;
+            "
+          >
+            <h5 class="card-title text-white font-lg">
+              {{ movie.title | slice: 0:20
+              }}{{ movie.title.length > 20 ? "..." : "" }}
+            </h5>
+            <p class="card-text text-white font-sm">{{ movie.year }}</p>
+          </div>
+        </a>
+      </div>
+    </ng-container>
+  </div>
 </div>

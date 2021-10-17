@@ -26,6 +26,13 @@ export class MovieService {
       )
   }
 
+  public getRandomMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${url}/random`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   public addMovie(movie: Movie): Observable<Movie> {
     return this.http.post<Movie>(`${url}/add`, movie, this.httpOptions)
       .pipe(
