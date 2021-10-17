@@ -35,4 +35,7 @@ export class NavComponent{
   {
     return sessionStorage.getItem('firstName');
   }
+  logout() {
+    sessionStorage.clear();
+  }
 }
