@@ -12,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserHomepageComponent implements OnInit {
 
+  currentUserId = Number(JSON.parse(sessionStorage.getItem('userId')!));
+
   public user = new User(0, '', '', '', '', '', [], [], [])
   public reviews:Review[] = []
   public username: string = ''
@@ -36,6 +38,7 @@ export class UserHomepageComponent implements OnInit {
     this.userService.findByUsername(this.username).subscribe(data => {
       console.log(data)
       this.user = data
+      console.log(this.user.id + " *** " + this.currentUserId)
     })
 
   }

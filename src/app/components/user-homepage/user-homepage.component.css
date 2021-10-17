@@ -175,6 +175,10 @@ a.article:hover {
     background-image: radial-gradient(rgba(46, 0, 82, 0.78), #361f52); min-height: 100vh;
 }
 
+#content{
+    color: #ddd;
+}
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
