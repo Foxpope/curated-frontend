@@ -172,6 +172,7 @@ a.article:hover {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
+    background-image: radial-gradient(rgba(46, 0, 82, 0.78), #361f52); min-height: 100vh;
 }
 
 /* ---------------------------------------------------
