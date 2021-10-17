@@ -36,6 +36,7 @@ export class MovieDetailComponent implements OnInit {
 
   setUserReview(): void {
     console.log(this.movie.reviews);
+    this.userReviewObject = new Review(0, 0, false, '', this.movie, new User(0, '', '', '', '', '', [], [], []));
     for (const review of this.movie.reviews) {
       if (review.user.username === this.current_username) {
         this.userReviewObject = review;
