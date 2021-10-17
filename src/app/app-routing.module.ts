@@ -1,3 +1,4 @@
+import { AuthGuard } from './guard/shard/auth.guard';
 import { MoviesComponent } from './components/movies/movies.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
 import { NgModule } from '@angular/core';
@@ -12,17 +13,17 @@ import { UserHomepageComponent } from './components/user-homepage/user-homepage.
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 const routes: Routes = [
-  {path:'movie-detail',component:MovieDetailComponent},
-  {path:'movie-detail/:id',component:MovieDetailComponent},
-  {path:'movies/:search', component:MoviesComponent},
-  {path:'welcome',component:WelcomeComponent},
+  {path:'movie-detail',component:MovieDetailComponent, canActivate: [AuthGuard]},
+  { path: 'movie-detail/:id', component: MovieDetailComponent, canActivate: [AuthGuard]},
+  { path: 'movies/:search', component: MoviesComponent, canActivate: [AuthGuard]},
+  { path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path:'registration', component:RegistrationComponent},
   {path:'login', component:LoginComponent},
-  {path:'users', component:UsersComponent},
-  {path:'movie-search', component:MovieSearchComponent},
-  {path:'main', component:MainComponent}, //if logged in...
-  {path: 'user-homepage', component:UserHomepageComponent},
-  {path: 'user-edit', component:UserEditComponent},
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+  { path: 'movie-search', component: MovieSearchComponent, canActivate: [AuthGuard]},
+  { path: 'main', component: MainComponent, canActivate: [AuthGuard]}, //if logged in...
+  { path: 'user-homepage', component: UserHomepageComponent, canActivate: [AuthGuard]},
+  { path: 'user-edit', component: UserEditComponent, canActivate: [AuthGuard]},
   {path:'',component:WelcomeComponent},
 ];
 

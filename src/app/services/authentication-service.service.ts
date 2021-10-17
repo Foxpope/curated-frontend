@@ -26,10 +26,9 @@ export class AuthenticationService {
       );
   }
 
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem("username");
-    console.log(!(user === null));
-    return !(user === null);
+  get isLoggedIn(): boolean {
+    let authToken = sessionStorage.getItem('token');
+    return (authToken !== null) ? true : false;
   }
 
   logOut() {
