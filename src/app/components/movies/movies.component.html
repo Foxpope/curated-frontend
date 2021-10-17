@@ -14,15 +14,32 @@
         border-image: linear-gradient(#3e3e3e, #222222) 1;
       "> -->
       <ng-container *ngFor="let movie of moviesArray">
-        <div class="card text-center mr-1" style="width: 13rem; height: 20rem;">
-          <img class="card-img-top" height="150px" width="150px" src="{{movie.Poster}}" alt="Card image cap">
-          <div class="card-body" style="background: radial-gradient(transparent, #000000), #320b39">
-              <h5 class="card-title font-lg">{{ movie.Title | slice: 0:20 }}{{movie.Title.length > 20 ? '...' : ''}}</h5>
-            <p class="card-text font-sm">{{movie.Year}}</p>
-            <a href="#" class="btn btn-primary">Get Details</a>
-          </div>
+
+        <div class="card text-center mr-1 mt-2" style="width: 13rem; height: 17rem; border: none;">
+          <button class="h-100 bg-dark" (click)="movieSelect(movie.imdbID)">
+            <img class="card-img-top" height="150px" width="150px" src="{{movie.Poster}}" alt="Card image cap">
+            <div class="card-body" style="background: radial-gradient(transparent, #000000), #320b39; height: 104px;">
+                <h5 class="card-title text-white font-lg">{{ movie.Title | slice: 0:20 }}{{movie.Title.length > 20 ? '...' : ''}}</h5>
+              <p class="card-text text-white font-sm">{{movie.Year}}</p>
+            </div>
+          </button>
         </div>
       </ng-container>
     </div>
-  <!-- </div> -->
+    <ng-container *ngIf="page !== 1">
+      <div class="row mt-1 mb-2 w-50 d-flex text-center justify-content-between flex-nowrap">
+        <button class="btn btn-link" (click)="previousPage()">Back</button>
+        <button class="btn btn-link" (click)="nextPage()">Next</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="page === 1 && numberOfPages > 1">
+      <div class="row mt-1 mb-2 text-center">
+        <button class="btn btn-link" (click)="nextPage()">Next</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="page === numberOfPages && numberOfPages > 1">
+      <div class="row mt-1 mb-2 text-center">
+        <button class="btn btn-link" (click)="previousPage()">Back</button>
+      </div>
+    </ng-container>
 </div>

@@ -11,7 +11,7 @@
   </ng-container>
 </div>
 <ng-container *ngIf="searchBox.value !== ''">
-  <a routerLink="/movies/{{searchBox.value}}" type="button" class="list-group-item list-group-item-action">Find More By This Search</a>
+  <a routerLink="/movies/{{searchBox.value}}" type="button" (click)="searchBox.value=''" class="list-group-item list-group-item-action">Find More By This Search</a>
 </ng-container>
 <!-- <form>
   <input type="text" #movie id="movie">
