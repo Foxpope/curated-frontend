@@ -7,7 +7,7 @@ export const environment = {
 };
 
 export const localUrl = `http://localhost:5000/api`
-export const awsUrl = `http://api-env.eba-udukpxjr.us-east-2.elasticbeanstalk.com/api/`
+export const awsUrl = `http://ec2-54-235-42-172.compute-1.amazonaws.com/api`
 export const hostName = window.location.origin//hostname;
 
 /*

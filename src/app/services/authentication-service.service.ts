@@ -3,8 +3,9 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { catchError, map } from "rxjs/operators";
 import { Observable, throwError } from 'rxjs';
+import { awsUrl } from 'src/environments/environment.prod';
 
-const url = localUrl;
+const url = awsUrl;
 
 @Injectable({
   providedIn: "root"
