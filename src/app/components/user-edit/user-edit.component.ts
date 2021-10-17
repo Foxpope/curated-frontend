@@ -32,17 +32,17 @@ export class UserEditComponent implements OnInit {
       this.userService.updateUser(this.currentUser)
         .subscribe(
           user => {
-            this.currentUser.id = user.id;
-            this.currentUser.email = user.email;
-            this.currentUser.firstName = user.firstName;
-            this.currentUser.lastName = user.lastName;
-            this.currentUser.password = user.password;
-            this.currentUser.username = user.username;
-            this.currentUser.following = user.following;
-            this.currentUser.followers = user.followers
-            this.currentUser.reviews = user.reviews;
-            sessionStorage.setItem('username', user.username);
-            sessionStorage.setItem('firstName', user.firstName);
+            // this.currentUser.id = user.id;
+            // this.currentUser.email = user.email;
+            // this.currentUser.firstName = user.firstName;
+            // this.currentUser.lastName = user.lastName;
+            // this.currentUser.password = user.password;
+            // this.currentUser.username = user.username;
+            // this.currentUser.following = user.following;
+            // this.currentUser.followers = user.followers
+            // this.currentUser.reviews = user.reviews;
+            // sessionStorage.setItem('username', user.username);
+            // sessionStorage.setItem('firstName', user.firstName);
             console.log(this.currentUser)
           }
         )
