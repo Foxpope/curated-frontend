@@ -5,6 +5,7 @@
     <nav id="sidebar">
         <div class="sidebar-header">
             <h1 class="username_card">{{ user.username }}</h1>
+            <a *ngIf="user.id == currentUserId" href="/user-edit">edit user</a>
         </div>
 
         <ul class="list-unstyled components">
