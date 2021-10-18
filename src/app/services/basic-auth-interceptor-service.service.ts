@@ -14,7 +14,7 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    if(req.url.startsWith(localUrl)){
+    if(req.url.startsWith(awsUrl)){
       const jwt = sessionStorage.getItem('token');
       if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
         req = req.clone({
