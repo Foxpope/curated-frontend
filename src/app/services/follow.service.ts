@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Observable, of, throwError } from 'rxjs';
-import { awsUrl, localUrl } from 'src/environments/environment';
+import { localUrl } from 'src/environments/environment';
 import { catchError, map } from "rxjs/operators";
 import { Review } from '../models/review';
 import { Movie } from '../models/movie';
 import { User } from '../models/user';
 import { Follow } from '../models/follow';
+import { awsUrl } from 'src/environments/environment.prod';
 
 const url = awsUrl + '/follows';
 

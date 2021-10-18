@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Observable, of, throwError } from 'rxjs';
 import { User } from 'src/app/models/user';
-import { awsUrl, localUrl } from 'src/environments/environment';
+import { localUrl } from 'src/environments/environment';
 import { catchError, map } from "rxjs/operators";
 import { Movie } from '../models/movie';
+import { awsUrl } from 'src/environments/environment.prod';
 
 const url = awsUrl;
 
